@@ -1,0 +1,204 @@
+/*---------------------------------------------------------- Colors -------------------------------------------------------------------------------------- */
+
+:root {
+/*Color Scheme - https://realtimecolors.com/?colors=eef6fc-06141e-1e6699-091f2f-2ecdd6 */
+--textCol: #eef6fc;
+
+--backCol: #06141e;
+--transCol: rgba(6, 20, 30, 0.9);
+
+--primCol: #1e6699;
+--secCol: #091f2f;
+--accCol: #2ecdd6;
+
+/* Gradients https://cssgradient.io/ */
+--primGra: linear-gradient(90deg, rgba(30,102,153,1) 0%, rgba(46,205,214,1) 100%);
+--backGra: radial-gradient(circle, rgba(14,58,89,1) 0%, rgba(6,20,30,1) 100%); 
+}
+
+
+/* Gradients */
+
+/* Generic */
+.gradient-highlight {
+    background-color: var(--accCol);
+    background-image: var(--primGra);
+}
+
+/* Text */
+.gradient-text {
+    background-color: var(--primCol);
+    background-image: var(--primGra);
+
+    /* display: inline-block */
+    width: fit-content;
+    background-size:100%;
+    
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+
+    -moz-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hover Animation */
+@keyframes highlight-gradient-animation {
+    0% {
+        background-size: 100%;
+        background-position: left;
+    }
+
+    50% {
+        background-size: 150%;
+        background-position: right;
+    }
+
+    100% {
+        background-size: 100%;
+        background-position: left;
+    }
+}
+
+.gradient-highlight:hover {
+    animation: highlight-gradient-animation 1.25s ease forwards;
+}
+
+.gradient-text:hover {
+    animation: highlight-gradient-animation 1.25s ease forwards;
+}
+
+/*---------------------------------------------------------- Style Guide -------------------------------------------------------------------------------------- */
+
+/* Style guide inspired by betterfuckingwebsite.com */
+body {
+    /* Reset Browser Default Margin */
+    margin: 0;
+
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: sans-serif;
+    
+    /*background-color: var(--backCol);*/
+    /* background is slightly more interesting as a gradient - https://cssgradient.io/ */
+    background: var(--backCol);
+    background: var(--backGra); 
+    
+    color: var(--textCol); 
+}
+
+
+/* Main Content Page */
+#center
+{
+    background: var(--transCol);
+
+    height: 100vh;
+
+    margin-right: 6.25%;
+    margin-left: 6.25%;   
+
+    padding-top: 0.5%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+/* --------------------------------------------- Apply Style to other Primitive Classes ---------------------------------------------*/
+
+/* --------------------------------------------- Header --------------------------------------------------------- */
+
+h1 {
+    color: var(--primCol);
+    font-weight: 900;
+}
+
+h2 {
+    color: var(--primCol);
+    font-weight: 800;
+}
+
+h3 {
+    color: var(--primCol);
+    text-decoration: underline;
+    text-decoration-color: var(--accCol);
+    
+    font-weight: 800;
+}
+
+h4 {
+    color: var(--textCol);
+    text-decoration: underline;
+    text-decoration-color: var(--primCol);
+    
+    font-weight: 700;
+}
+
+hr {
+    color: var(--accCol);
+}
+
+/* --------------------------------------------- Links --------------------------------------------------------- */
+
+a {
+    color: var(--accCol);
+    text-decoration: underline;
+    text-decoration-color: var(--accCol);
+
+    font-weight: 600;
+}
+
+a:hover {
+    animation: link-hover-animation 0.15s ease forwards;
+    cursor: pointer;
+    text-shadow: 0px 0px 100px var(--accCol);
+    /* Incase it displays an svg */
+    filter: drop-shadow(0px 0px 100px var(--accCol))
+}
+
+@keyframes link-hover-animation {
+    0% {
+        font-size: inherit;
+        filter: none;
+    }
+
+    66%{
+        font-size: 102%;
+        filter: blur(2px)
+    }
+
+    100% {
+        font-size: inherit;
+        filter: none;
+    }
+}
+
+
+/* --------------------------------------------- Button --------------------------------------------------------- */
+
+button {
+    background-color: var(--secCol);    
+    
+    border-radius: 10%;
+    border-width: 0;
+    
+    color: var(--textCol);
+    
+    text-align: center;
+    display: inline-block;
+    font-weight: bolder;
+
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+button:hover {
+    box-shadow:  0px 0px 150px var(--secCol);
+    cursor: pointer;
+    filter: brightness(140%);
+}
+
+button:active {
+    background-color: var(--primCol);
+    box-shadow:  0px 0px 25px var(--primCol);
+}
