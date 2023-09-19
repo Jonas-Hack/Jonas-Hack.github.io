@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-DE">
+
     <head>
         <meta charset="utf-8">
         <!--<link rel="icon" href="thumbnails\\profileThumb.png">-->
@@ -8,25 +9,47 @@
         <!-- Local style sheet relative to this file -->
         <link rel="stylesheet" href="style.css">
     </head>
-    
-    <div id="center">
-        <h1 class="gradient-text">Header h1</h1>
-        <h2>Header h2</h2>
-        <h3>Header h3</h3>
-        <h4>Header h4</h4>
-        <p> This is a paragraph</p>
-        <a>This is a link</a>
+
+    <header style="background: var(--transCol); margin: none">
+        <div class="horzontal-flex" style="justify-content: space-between; padding-right: 50pt; padding-left: 50pt;">
+            <h1 class="gradient-text" style="display: inline-block;">Jonas Hack</h1>
+            <h2>Landing Page</h2>
+        </div>
         
-        <br/> <br/>
+    
+        <div style="display: flex; justify-content: center; align-content: stretch; padding-bottom: 20pt;">
+            <button onclick="window.location.href='sub-pages/style-test.html';">Style Sheet Test</button>
+            <button>Programming</button>
+            <button>3D Art</button>
+            <button>Games</button>
+            <button>Portfolio</button>
+        </div>
+    </header>
 
-        <div class="gradient-highlight" style="height: 100px; width: 300px;"></div>
-        
-        <br/> <br/>
-
-        <button style="height: 100px; width: 100px;">Test Button</button>
-
-        <hr/>
-    </div>
+    <body>
+        <div class="center">
+        <p>Sample Text lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+        </div> 
+    </body> 
 
     
+    <footer style="background: var(--transCol); margin: none; padding: 20pt; bottom: 0; width:100%">
+        <h4 style="text-align: center;">External Links:</h4>
+        <div class="horzontal-flex" style="padding: 0 50pt 0 50pt; justify-content: space-evenly;">
+            <a href="mailto:hack@in.tum.de" target="_blank" style="text-decoration: none;">✉ Email</a>
+            <a href="https://discord.com/users/170882869693120512" target="_blank">
+                <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0b5061df29d55a92d945_full_logo_blurple_RGB.svg" alt="Discord" height="20pt" color="var(--accColor)">
+            </a>
+            <a href="https://zockchster.itch.io/" target="_blank">
+                <img src="https://static.itch.io/images/logo-white-new.svg" alt="Itch.io" height="18pt" color="var(--accColor)">
+            </a>
+            <a href="https://www.artstation.com/zockchster" target="_blank">
+                <img src="https://www.artstation.com/assets/about/logo/logo-artstation-plain-f084302dffa448a1582a8f7afb171673d1a420f9eddd5baeacbdb88e65089599.png" alt="Artstation" height="35pt" color="var(--accColor)">
+            </a>
+            <a href="https://github.com/Jonas-Hack" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" height="35pt" color="var(--accColor)">
+            </a>
+        </div>
+    </footer>
+
 </html>    

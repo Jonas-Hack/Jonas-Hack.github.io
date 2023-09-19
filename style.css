@@ -5,7 +5,7 @@
 --textCol: #eef6fc;
 
 --backCol: #06141e;
---transCol: rgba(6, 20, 30, 0.9);
+--transCol: rgba(6, 20, 30, 0.75);
 
 --primCol: #1e6699;
 --secCol: #091f2f;
@@ -46,19 +46,24 @@
 @keyframes highlight-gradient-animation {
     0% {
         background-size: 100%;
-        background-position: left;
+        background-position: right;
+        filter: contrast(100%);
     }
 
     50% {
         background-size: 150%;
-        background-position: right;
+        background-position: left;
+        filter: contrast(150%);
     }
 
     100% {
         background-size: 100%;
-        background-position: left;
+        background-position: right;
+        filter: contrast(100%);
     }
 }
+
+
 
 .gradient-highlight:hover {
     animation: highlight-gradient-animation 1.25s ease forwards;
@@ -76,24 +81,19 @@ body {
     margin: 0;
 
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 16pt;
     font-family: sans-serif;
     
-    /*background-color: var(--backCol);*/
-    /* background is slightly more interesting as a gradient - https://cssgradient.io/ */
+    /* background is slightly more interesting as a gradient */
     background: var(--backCol);
     background: var(--backGra); 
     
     color: var(--textCol); 
 }
 
-
 /* Main Content Page */
-#center
-{
+.center{
     background: var(--transCol);
-
-    height: 100vh;
 
     margin-right: 6.25%;
     margin-left: 6.25%;   
@@ -107,14 +107,22 @@ body {
 
 /* --------------------------------------------- Header --------------------------------------------------------- */
 
+
+p {
+    display: inline;
+    font-weight: normal;
+}
+
 h1 {
     color: var(--primCol);
     font-weight: 900;
+    line-height: 1.1;
 }
 
 h2 {
     color: var(--primCol);
     font-weight: 800;
+    line-height: 1.1;
 }
 
 h3 {
@@ -123,6 +131,7 @@ h3 {
     text-decoration-color: var(--accCol);
     
     font-weight: 800;
+    line-height: 1.1;
 }
 
 h4 {
@@ -131,6 +140,7 @@ h4 {
     text-decoration-color: var(--primCol);
     
     font-weight: 700;
+    line-height: 1.1;
 }
 
 hr {
@@ -144,15 +154,25 @@ a {
     text-decoration: underline;
     text-decoration-color: var(--accCol);
 
-    font-weight: 600;
+    font-weight: 500;
 }
 
 a:hover {
-    animation: link-hover-animation 0.15s ease forwards;
-    cursor: pointer;
-    text-shadow: 0px 0px 100px var(--accCol);
+    
+    text-shadow: 0pt 0pt 100pt var(--accCol);
     /* Incase it displays an svg */
-    filter: drop-shadow(0px 0px 100px var(--accCol))
+    filter: drop-shadow(0pt 0pt 100pt var(--accCol));
+    transition: 0.2s;
+
+    animation: link-hover-animation 0.2s ease forwards, small-hop-animation 0.5s ease forwards;
+
+    cursor: pointer;    
+}
+
+a:active {
+    filter: drop-shadow(0pt 0pt 200pt var(--accCol));
+    filter: blur(1pt);
+    animation: big-hop-animation 0.5 ease forwards;
 }
 
 @keyframes link-hover-animation {
@@ -163,7 +183,7 @@ a:hover {
 
     66%{
         font-size: 102%;
-        filter: blur(2px)
+        filter: blur(2pt);
     }
 
     100% {
@@ -176,11 +196,14 @@ a:hover {
 /* --------------------------------------------- Button --------------------------------------------------------- */
 
 button {
-    background-color: var(--secCol);    
     
+    margin: 15pt;
+    padding: 15pt;
+
     border-radius: 10%;
     border-width: 0;
     
+    background-color: var(--secCol);    
     color: var(--textCol);
     
     text-align: center;
@@ -188,17 +211,137 @@ button {
     font-weight: bolder;
 
     line-height: 1.5;
-    font-size: 16px;
+    font-size: 16pt;
     font-family: sans-serif;
+
+    box-shadow: 0 0 20pt var(--transCol);
 }
 
 button:hover {
-    box-shadow:  0px 0px 150px var(--secCol);
+    box-shadow:  0pt 0pt 150pt var(--secCol);
     cursor: pointer;
     filter: brightness(140%);
+    transition: 0.25s;
+    animation: small-hop-animation 0.5s ease forwards;
 }
 
 button:active {
     background-color: var(--primCol);
-    box-shadow:  0px 0px 25px var(--primCol);
+    box-shadow:  0pt 0pt 25pt var(--primCol);
+    animation: big-hop-animation 0.5s ease forwards;
+    transition: 0.125s;
+}
+
+@keyframes big-hop-animation {
+    0% {
+        transform: translateY(0pt) scale(1);
+    }
+
+    33% {
+        transform: translateY(-10pt) scale(1.01);
+    }
+
+    100% {
+        transform: translateY(0pt) scale(1);
+    }
+}
+
+@keyframes small-hop-animation {
+    0% {
+        transform: translateY(0pt) scale(1);
+    }
+
+    33% {
+        transform: translateY(-3pt) scale(1.01);
+    }
+
+    100% {
+        transform: translateY(0pt) scale(1);
+    }
+}
+
+
+/* --------------------------------------------- Lists --------------------------------------------------------- */
+
+/* Unorderd Lists */
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    /*content: "\298A";
+    content: "\2023";*/
+    content: "\25B9";
+    color: var(--accCol);
+    margin-left: -20pt;
+    margin-right: 5pt;
+}
+
+/* Ordered Lists */
+ol {
+    list-style: none;
+    counter-reset: list_item_counter;
+}
+
+ol li::before {
+    content: counter(list_item_counter);
+    counter-increment: list_item_counter;
+    color: var(--accCol);
+    margin-left: -20pt;
+    margin-right: 5pt;
+    font-size: 75%;
+    align-content: center;
+}
+
+/* --------------------------------------------- Containers --------------------------------------------------------- */
+
+.container {
+    background: var(--backCol);    
+    color: var(--textCol);
+    
+
+    border-radius: 10pt;
+    border-width: 0;
+    padding: 15pt;
+
+
+    display: inline-block;
+
+    line-height: 1.5;
+    font-size: 16pt;
+    font-family: sans-serif;
+
+    box-shadow: 0 0 10pt var(--transCol);
+}
+
+.container:hover {
+    filter: brightness(105%);
+    transition: 0.5s;
+}
+
+.secondary {
+    background: var(--secCol);
+}
+
+.horzontal-flex {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-content: stretch;
+}
+
+.vertical-flex {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around; 
+    align-content: stretch;
+}
+
+summary {
+   cursor: pointer;
+}
+
+summary:hover {
+    animation: small-hop-animation 0.5s ease forwards;
+    text-shadow: 0 0 15pt var(--transCol);
 }
