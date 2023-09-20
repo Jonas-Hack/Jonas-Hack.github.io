@@ -138,6 +138,8 @@ header {
 
     background: var(--transCol); 
     backdrop-filter: blur(0.25em) sepia(20%);
+
+    z-index: 9999999;
 }
 
 footer {
@@ -457,7 +459,7 @@ summary:hover {
     max-height: 100%;
 
     
-    object-fit: none;
+    object-fit:cover;
     aspect-ratio: calc(16/9);
 
 
