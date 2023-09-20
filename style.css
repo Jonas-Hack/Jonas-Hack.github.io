@@ -110,17 +110,44 @@ body {
     color: var(--textCol); 
 }
 
+
+/* Actual Content */
+
 /* Main Content Page */
 .center{
     background: var(--transCol);
 
+    height: max(100vh, auto);
+
     margin-right: 6.25%;
     margin-left: 6.25%;   
 
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding-top: 13.5vh;
+    padding-bottom: 1.5em;
     padding-left: 2.5%;
     padding-right: 2.5%;
+}
+
+/* Header */
+header {
+    margin: none; 
+    width: 100vw; 
+
+    position: fixed; 
+    top:0; 
+
+    background: var(--transCol); 
+    backdrop-filter: blur(0.25em) sepia(20%);
+}
+
+footer {
+    background: var(--transCol);
+    margin: none;
+
+    padding: 1;
+    padding-top:0.5em;
+
+    width:100%
 }
 
 /* --------------------------------------------- Apply Style to other Primitive Classes ---------------------------------------------*/
@@ -196,8 +223,7 @@ a {
 a:hover {
     
     text-shadow: 0 0 8.34rem var(--accCol);
-    /* Incase it displays an svg */
-    filter: drop-shadow(0 0 8.3rem var(--accCol));
+    filter: drop-shadow(0 0 8.43rem var(--accCol));
     transition: 0.2s;
 
     animation: link-hover-animation 0.2s ease forwards, small-hop-animation 0.5s ease forwards;
@@ -228,13 +254,32 @@ a:active {
     }
 }
 
+/*-------------------------------- Custom Link for as Home Button ------------------------------------------------*/
+.home-button:hover {
+    cursor: pointer;
+
+    filter: brightness(110%);
+    text-shadow: 0 0 16.6rem var(--accCol);
+    transition: 0.3s;
+
+    animation: highlight-gradient-animation 0.5s ease forwards, small-hop-animation 0.2s ease forwards;
+}
+
+.home-button:active {
+    text-shadow: 0 0 16.6rem var(--accCol);
+    filter: brightness(120%);
+    transition: 0.1s;
+
+    animation: big-hop-animation 0.2s ease forwards;    
+}
+
 
 /* --------------------------------------------- Button --------------------------------------------------------- */
 
 button {
     
     margin: clamp(0.1em, 0.5em, 2em);
-    padding: 1em;
+    padding: 0.5em 1em 0.5em 1em;
 
     border-radius: 1em;
     border-width: 0;
@@ -246,7 +291,7 @@ button {
     display: inline-block;
     font-weight: bolder;
 
-    line-height: 1.5;
+    line-height: 1.0;
     font-size: inherit;
     font-family: sans-serif;
 
@@ -338,7 +383,7 @@ ol li::before {
 
     border-radius: 1em;
     border-width: 0;
-    padding: 1em;
+    padding: 0.5em 1em 0.5em 1em;
 
 
     display: inline-block;
@@ -352,6 +397,7 @@ ol li::before {
 
 .container:hover {
     filter: brightness(105%);
+    box-shadow: 0 0 1.66rem var(--transCol);
     transition: 0.5s;
 }
 
