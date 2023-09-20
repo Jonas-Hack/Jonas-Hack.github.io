@@ -152,7 +152,7 @@ footer {
 
 /* --------------------------------------------- Apply Style to other Primitive Classes ---------------------------------------------*/
 
-/* --------------------------------------------- Header --------------------------------------------------------- */
+/* --------------------------------------------- Headlines --------------------------------------------------------- */
 
 
 p {
@@ -436,9 +436,58 @@ summary:hover {
 }
 @media (max-width: 800px) {
     .reactive-flex {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around; 
-        align-content: stretch;    
+        flex-direction: column; 
     }        
+}
+
+
+/* -------------------------------------------------- Image Gallery -------------------------------------------------------------------- */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0.5em;
+
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.gallery > img {
+    max-width: 100%;
+    max-height: 100%;
+
+    
+    object-fit: none;
+    aspect-ratio: calc(16/9);
+
+
+    border-radius: 0.5em;
+}
+
+.gallery img:hover {
+    transition: 0.3s;
+    
+    
+    object-fit: cover;
+    align-self: center;
+    aspect-ratio: auto;
+
+    transform: scale(150%);
+
+    box-shadow: 0 0 5em black;
+    border-radius: 0;
+}
+
+
+@media (max-width: 800px) {
+    .gallery {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .gallery img:hover {
+        transition: 0.3s;
+
+        transform: scale(110%);
+    }    
+    
 }
