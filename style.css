@@ -123,7 +123,7 @@ body {
     margin-right: 6.25%;
     margin-left: 6.25%;   
 
-    padding-top: 13.5vh;
+    padding-top: 8.5vh;
     padding-bottom: 1.5em;
     padding-left: 2.5%;
     padding-right: 2.5%;
@@ -459,8 +459,14 @@ summary:hover {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 0.5em;
+    grid-template-columns: repeat(4, auto);
+    grid-auto-columns: minmax(10%, auto);
+    /* grid-template-rows: auto auto; */
+    /*grid-template-columns: fit-content(25%) fit-content(25%) 1fr;*/
+    /*grid-template-columns: 25% 25% 25% 25%*/
+
+    gap: 1em;
+
 
     align-items: stretch;
     justify-items: stretch;
@@ -470,31 +476,34 @@ summary:hover {
     max-width: 100%;
     max-height: 100%;
 
+    min-width: none;
+    min-height: none;
     
-    object-fit:cover;
-    aspect-ratio: calc(16/9);
+    object-fit: cover;
+    overflow: hidden;
+    aspect-ratio: 1;
 
-
-    border-radius: 0.5em;
+    border-radius: 25%;
+    filter: drop-shadow(0 0 0.3em black);
 }
 
 .gallery img:hover {
     transition: 0.3s;
     
-    object-fit: cover;
-    align-self: center;
     aspect-ratio: auto;
 
     transform: scale(150%);
 
-    box-shadow: 0 0 5em black;
-    border-radius: 0;
+    filter: drop-shadow(0 0 5em black);
+    border-radius: 0.25em;
+
+    z-index: 500;
 }
 
 
 @media (max-width: 800px) {
     .gallery {
-        grid-template-columns: repeat(1, auto);
+        grid-template-columns: repeat(2, auto);
     }
 
     .gallery img:hover {
