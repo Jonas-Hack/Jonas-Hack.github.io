@@ -259,8 +259,8 @@ a:active {
     }
 
     66%{
-        font-size: 102%;
-        filter: blur(0.1rem);
+        font-size: 101%;
+        filter: blur(0.08rem);
     }
 
     100% {
@@ -273,19 +273,15 @@ a:active {
 .home-button:hover {
     cursor: pointer;
 
-    filter: brightness(110%);
     text-shadow: 0 0 16.6rem var(--accCol);
     transition: 0.3s;
 
-    animation: highlight-gradient-animation 0.5s ease forwards, small-hop-animation 0.2s ease forwards;
+    animation: highlight-gradient-animation 0.5s ease forwards;
 }
 
 .home-button:active {
     text-shadow: 0 0 16.6rem var(--accCol);
-    filter: brightness(120%);
     transition: 0.1s;
-
-    animation: big-hop-animation 0.2s ease forwards;    
 }
 
 
@@ -313,6 +309,7 @@ button {
     box-shadow: 0 0 1.7rem var(--transCol);
 }
 
+/*
 button:hover {
     box-shadow:  0 0 12.5rem var(--secCol);
     cursor: pointer;
@@ -320,13 +317,23 @@ button:hover {
     transition: 0.25s;
     animation: small-hop-animation 0.5s ease forwards;
 }
-
-button:active {
+*/
+button:hover {
     background-color: var(--primCol);
     box-shadow:  0 0 2.1rem var(--primCol);
-    animation: big-hop-animation 0.5s ease forwards;
+    animation: small-hop-animation 0.3s ease forwards;
+    cursor: pointer;
     transition: 0.125s;
 }
+
+button:active {
+    background-color: var(--accCol);
+    box-shadow:  0 0 5rem var(--primCol);
+    animation: big-hop-animation 0.1s ease forwards;
+    cursor:grabbing;
+    transition: 0.1s;
+}
+
 
 @keyframes big-hop-animation {
     0% {
