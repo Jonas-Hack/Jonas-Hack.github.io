@@ -129,6 +129,12 @@ body {
     padding-right: 2.5%;
 }
 
+@media (max-width: 800px){
+    .center {
+        padding-top: 19vh;
+    }
+}
+
 section {
     font-family: 'Verdana', sans-serif;
 }
@@ -417,7 +423,7 @@ ol li::before {
 }
 
 .container:hover {
-    filter: brightness(105%);
+    /*filter: brightness(95%);*/
     box-shadow: 0 0 1.66rem var(--transCol);
     transition: 0.5s;
 }
@@ -467,13 +473,9 @@ summary:hover {
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-auto-columns: minmax(10%, auto);
-    /* grid-template-rows: auto auto; */
-    /*grid-template-columns: fit-content(25%) fit-content(25%) 1fr;*/
-    /*grid-template-columns: 25% 25% 25% 25%*/
+    /* grid-auto-columns: minmax(10%, auto); */
 
     gap: 1em;
-
 
     align-items: stretch;
     justify-items: stretch;
@@ -482,29 +484,48 @@ summary:hover {
 .gallery > img {
     max-width: 100%;
     max-height: 100%;
-
-    min-width: none;
-    min-height: none;
     
     object-fit: cover;
-    overflow: hidden;
     aspect-ratio: 1;
 
     border-radius: 25%;
     filter: drop-shadow(0 0 0.3em black);
+
+    position: relative; 
+    top: 0;
+    left: 0;
 }
 
+
 .gallery img:hover {
-    transition: 0.3s;
+    transition: 0.2s;
+    cursor: pointer;
     
+    box-shadow: 0 0 1em black;
+    box-sizing: border-box;
+}
+
+.gallery img:active {    
+    /* Best fit as large as possible */
     aspect-ratio: auto;
-
-    transform: scale(150%);
-
-    filter: drop-shadow(0 0 5em black);
-    border-radius: 0.25em;
-
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: calc(90vh - 5vh);
+   
+    /* center on screen */
+    position: fixed; 
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    
+    /* Visual sugar */
     z-index: 500;
+    
+    cursor: grabbing;
+    filter: drop-shadow(0 0 5em black);
+    border-radius: 0.25em; 
+
+    transition: 0.3s;
 }
 
 
