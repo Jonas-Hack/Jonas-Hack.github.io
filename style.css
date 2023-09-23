@@ -137,6 +137,7 @@ body {
 
 section {
     font-family: 'Verdana', sans-serif;
+    text-align: justify;
 }
 
 p {
@@ -468,9 +469,9 @@ summary:hover {
 }
 
 
-/* -------------------------------------------------- Image Gallery -------------------------------------------------------------------- */
+/* -------------------------------------------------- 1:1 Aspect Image Gallery -------------------------------------------------------------------- */
 
-.gallery {
+.even-gallery {
     display: grid;
     grid-template-columns: repeat(4, auto);
     /* grid-auto-columns: minmax(10%, auto); */
@@ -481,7 +482,7 @@ summary:hover {
     justify-items: stretch;
 }
 
-.gallery > img {
+.even-gallery > img {
     max-width: 100%;
     max-height: 100%;
     
@@ -498,7 +499,7 @@ summary:hover {
 }
 
 
-.gallery img:hover {
+.even-gallery img:hover {
     transition: 0.2s;
     cursor: pointer;
     
@@ -506,7 +507,7 @@ summary:hover {
 }
 
 
-.gallery img:active {    
+.even-gallery img:active {    
     /* Best fit as large as possible */
     aspect-ratio: auto;
     object-fit: contain;
@@ -531,7 +532,75 @@ summary:hover {
 
 
 @media (max-width: 800px) {
-    .gallery {
+    .even-gallery {
         grid-template-columns: repeat(2, auto);
     } 
 }
+
+/* -------------------------------------------------- Dynamic Gallery --------------------------------------- */
+
+.dynamic-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+    justify-content: center;
+    align-content: flex-start;
+    
+    align-items: stretch;
+    justify-items: stretch;
+}
+
+.dynamic-gallery > img {
+    flex: 1;
+
+    max-width: 25vw;
+    max-height: 25vh;
+
+    aspect-ratio: auto;
+    object-fit: contain;
+    /*outline: ridge red 2px;*/
+
+    object-fit: cover;
+
+    border-radius: 2em;
+    filter: drop-shadow(0 0 0.3em black);
+}
+
+@media (max-width: 800px) {
+    .dynamic-gallery > img {
+        max-width: 30vw;
+        max-height: 60vh;
+    }    
+}
+
+.dynamic-gallery img:hover {
+    transition: 0.2s;
+    cursor: pointer;
+    
+    box-shadow: 0 0 1em black;
+}
+
+.dynamic-gallery img:active {    
+    /* Best fit as large as possible */
+    aspect-ratio: auto;
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: calc(90vh - 5vh);
+   
+    /* center on screen */
+    position: fixed; 
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    
+    /* Visual sugar */
+    z-index: 500;
+    
+    cursor: grabbing;
+    filter: drop-shadow(0 0 5em black);
+    border-radius: 0.25em; 
+
+    transition: 0.3s;
+}
+/* ---------------------------------------------------- Projects -------------------------------------------- */
