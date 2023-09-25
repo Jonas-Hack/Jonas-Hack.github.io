@@ -88,106 +88,101 @@
                     <br>
 
                     <div class="project-layout">
-                        <span>
-                            <a href="https://believing-gamedev.itch.io/kawami" target="_blank" style="position: relative; text-align: center;">
-                                <img src="https://img.itch.zone/aW1nLzEyNDM5Mzg3LnBuZw==/315x250%23c/NCNVwZ.png" 
-                                style="border-radius: 2em;">
-                                <h4 style="position: absolute; bottom:-10%; left: 50%; transform: translateX(-50%);
-                                padding:0.5em; background-color: var(--transCol); border-radius: 1em;">Play on Itch</h4>
-                                </img>
+
+                        <span class="itch-thumbnail">
+                            <a href="https://believing-gamedev.itch.io/kawami" target="_blank">
+                                <div>
+                                    <img src="https://img.itch.zone/aW1nLzEyNDM5Mzg3LnBuZw==/315x250%23c/NCNVwZ.png">
+                                    <h4>Play on Itch</h4>
+                                </div>
                             </a>
                         </span>
-
-                        <span style="width: 2em;"></span>
-
-                        <div class="vertical-flex">
-
-                            <div class="project-keyword-list">
-                                <p>cute</p><br>
-                                <p>top-down</p><br>
-                                <p>stealth</p><br>
-                                <p>shape-shifting</p><br>
-                                <p>Enemy AI</p><br>
-                            </div>
-                           
-
-                            <details>
-                                <summary>Read More</summary>
-                                <section>
-                                    <i>Kawami</i> is a cute top-down stealth game with shapeshifing mechanics.<br>
-                                    The game turned out shorter than we hoped and would have benefited from a bit more playtesting. Nevertheless I'm fairly happy with the outcome, as we were able to finish the game despite slight overscoping and organizational difficulties. I feel with more levels, this game could fulfill its potential, as the main mechanics are fully functional.<br>
-                                    <br>My main contributions were:
-                                    <ul>
-                                        <li>FSM-based Enemy AI</li>
-                                        <li>Partial work on most other tasks in both code and art</li>
-                                    </ul>
-                                </section>
-                                
-                                <span style="position: relative;">
-                                    <a href="https://youtu.be/URnjtTHXqlk?si=LSq7rPoPV1nngPOM" target="_blank" style="position: relative; text-align: center;">
-                                        <img src="https://img.youtube.com/vi/URnjtTHXqlk/0.jpg"
-                                        style="border-radius: 2em; filter:blur(0.1em)">
-                                        <h4 style="position: absolute; bottom:-10%; left: 50%; transform: translateX(-50%);
-                                        padding:0.5em; background-color: var(--transCol); border-radius: 1em;">View on Youtube</h4>
-                                        <img src="../resources/branding/youtube-icon.png"
-                                        style="position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);"></img>
-                                        </img>
-                                    </a>
-                                </span>
-                                
-                                <div class="container secondary">
-                                    <h3>Enemy AI</h3>
-                                    <br><br>
-                                    <section>
-                                        <b>#TODO: ENGLISH + gif + polish</b> <br> <br>
-
-                                        Eigentlich ist es recht simpel: <br>
-
-                                        <p>
-                                        Wir verwenden eine Final state machine - naiv implementiert mit nem enum und switch-methode.
-                                        Eine KI, kann also in unterschiedlichen states sein:
-                                        </p>
-                                        <ul>
-                                            <li>Guard <i>(stehe an punkt)</i></li>
-                                            <li>Partrol <i>(laufe waypoints ab)</i></li>
-                                            <li>Wander <i>(um einen punkt random laufen)</i></li>
-                                            <li>Investigate <i>(gehe zu punkt und schau dich in der umbebung um)</i></li>
-                                            <li>Combat <i>(gehe du gegner und schiesse auf ihn)</i></li>
-                                            <li>Flee <i>(renne vorm gegner weg)</i></li>
-                                        </ul>
-
-                                        <p>
-                                        Es gibt eine methode changeState(Behaviour nextBehaviour):
-                                        Hier werden für den nächsten State Variablen gesetzt. <i>(Sowas wie navmesh agent destination usw)</i>
-                                        </p>
-                                        <br>
-                                        <p>
-                                        In einem Loop werden für jeden State exit conditions geprüft.
-                                        Das sind z.B. timeSinceStartOfBehaviour, oder LineOfSightToPlayer usw.
-                                        Dann wird auf der Basis davon der State gewechselt.
-                                        </p>
-                                        <br>
-                                        <p>
-                                        Im Update wird je nach currentState eine unterschiedliche Methode ausgeführt, die das tatsächliche Verhalten bestimmt.
-                                        Also z.B. für patroll: Distanz zum nächsten Waypoint checken und ggf. Navmesh Destination ändern.
-                                        </p>
-                                        <br>
-                                        <p>
-                                        Die KI verwendet auch ein Sensing system. Wir haben also Events, die gecallt werden, wenn der Player die Vision-Cone betritt / verlässt oder einen Sound in Reichweite einer KI macht.
-                                        Je nachdem in welchem State wir sind, wird dann der State gewechselt, meistens zu Investigate oder Combat.
-                                        </p>
-                                        <br>
-                                        <p>
-                                        Das sensing funktioniert über range, winkel, raycast und layer checks. 
-                                        Zusätzlich haben wir noch ein Event, dass andere Skripts über state wechsel informiert. Damit wird dann z.B. eine Voice line gespielt, damit der player versteht was eigentlich passiert
-                                        </p>
-                                    </section>
-                                </div>
-
-                            </details>
-
-
+                       
+                        <div class="project-keyword-list">
+                            <br>
+                            <p>cute</p><br>
+                            <p>top-down</p><br>
+                            <p>stealth</p><br>
+                            <p>shape-shifting</p><br>
+                            <p>Enemy AI</p><br>
+                            <br>
                         </div>
+                        
+
+                        <details>
+                            <summary>Read More</summary>
+                            <section>
+                                <i>Kawami</i> is a cute top-down stealth game with shapeshifing mechanics.<br>
+                                The game turned out shorter than we hoped and would have benefited from a bit more playtesting. Nevertheless I'm fairly happy with the outcome, as we were able to finish the game despite slight overscoping and organizational difficulties. I feel with more levels, this game could fulfill its potential, as the main mechanics are fully functional.<br>
+                                <br>My main contributions were:
+                                <ul>
+                                    <li>FSM-based Enemy AI</li>
+                                    <li>Partial work on most other tasks in both code and art</li>
+                                </ul>
+                            </section>
+                            
+                            <span class="youtube-thumbnail">
+                                <a href="https://youtu.be/URnjtTHXqlk?si=LSq7rPoPV1nngPOM" target="_blank">
+                                    <div>
+                                        <img src="https://img.youtube.com/vi/URnjtTHXqlk/0.jpg">
+                                        <img src="../resources/branding/youtube-icon.png">
+                                        <h4></h4>
+                                    </div>
+                                </a>
+                            </span>
+                            
+                            <div class="container secondary">
+                                <h3>Enemy AI</h3>
+                                <br><br>
+                                <section>
+                                    <b>#TODO: ENGLISH + gif + polish</b> <br> <br>
+
+                                    Eigentlich ist es recht simpel: <br>
+
+                                    <p>
+                                    Wir verwenden eine Final state machine - naiv implementiert mit nem enum und switch-methode.
+                                    Eine KI, kann also in unterschiedlichen states sein:
+                                    </p>
+                                    <ul>
+                                        <li>Guard <i>(stehe an punkt)</i></li>
+                                        <li>Partrol <i>(laufe waypoints ab)</i></li>
+                                        <li>Wander <i>(um einen punkt random laufen)</i></li>
+                                        <li>Investigate <i>(gehe zu punkt und schau dich in der umbebung um)</i></li>
+                                        <li>Combat <i>(gehe du gegner und schiesse auf ihn)</i></li>
+                                        <li>Flee <i>(renne vorm gegner weg)</i></li>
+                                    </ul>
+
+                                    <p>
+                                    Es gibt eine methode changeState(Behaviour nextBehaviour):
+                                    Hier werden für den nächsten State Variablen gesetzt. <i>(Sowas wie navmesh agent destination usw)</i>
+                                    </p>
+                                    <br>
+                                    <p>
+                                    In einem Loop werden für jeden State exit conditions geprüft.
+                                    Das sind z.B. timeSinceStartOfBehaviour, oder LineOfSightToPlayer usw.
+                                    Dann wird auf der Basis davon der State gewechselt.
+                                    </p>
+                                    <br>
+                                    <p>
+                                    Im Update wird je nach currentState eine unterschiedliche Methode ausgeführt, die das tatsächliche Verhalten bestimmt.
+                                    Also z.B. für patroll: Distanz zum nächsten Waypoint checken und ggf. Navmesh Destination ändern.
+                                    </p>
+                                    <br>
+                                    <p>
+                                    Die KI verwendet auch ein Sensing system. Wir haben also Events, die gecallt werden, wenn der Player die Vision-Cone betritt / verlässt oder einen Sound in Reichweite einer KI macht.
+                                    Je nachdem in welchem State wir sind, wird dann der State gewechselt, meistens zu Investigate oder Combat.
+                                    </p>
+                                    <br>
+                                    <p>
+                                    Das sensing funktioniert über range, winkel, raycast und layer checks. 
+                                    Zusätzlich haben wir noch ein Event, dass andere Skripts über state wechsel informiert. Damit wird dann z.B. eine Voice line gespielt, damit der player versteht was eigentlich passiert
+                                    </p>
+                                </section>
+                            </div>
+
+                        </details>
+
+                       
                     </div>
                 </div>
 

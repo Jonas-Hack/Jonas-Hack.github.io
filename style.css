@@ -665,7 +665,6 @@ summary:hover {
     visibility: visible;
 }
 
-/* -------------------------------------------------- Project Descriptor -------------------------------------- */
 
 .tech-icon-bar {
     display: flex; 
@@ -676,29 +675,129 @@ summary:hover {
     gap:0.2em;
 }
 
+
+/* -------------------------------------------------- Project Descriptor -------------------------------------- */
+
+
 .project-keyword-list {
     opacity: 0.5; 
-    padding-bottom: 0.5em;
+    padding-left: 1em;
 
-    /* grid-column: 2; */
-    grid-column: 1;
+    grid-area: b;
+    align-self: start;
 
+    /* grid-column: 3;
+    grid-row: 1; */
 }
 
-.project-keyword-list ~ details[open] {
-    grid-column: 1;
-    grid-row: 2;
-
-    /* show details are opened */
-    color: red;
+.project-layout > details {
+    /* grid-column: 2;
+    grid-row: 1 / span 2; 
+    
+    bottom: 0; */
+    grid-area: d;
 }
 
-details[open] {
-    /* show details are opened */
-    color: red;
+@supports selector(:has(~ details[open])) {
+    .project-keyword-list:has(~ details[open]) {
+        /* grid-column: 1;
+        grid-row: 2; */
+    
+        grid-area: a;
+        align-self: center;
+    }    
+    
+    .project-layout > details[open] {
+        /* grid-column: 2;
+        grid-row: 1 / span 2; */
+
+        grid-area: b;
+    } 
 }
 
 .project-layout {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(8, auto);
+    grid-template-areas:
+    "a a a a b b b b"
+    "a a a a b b b b"
+    "c c c c d d d d"
+    "c c c c d d d d";
+}
+
+.project-layout > .itch-thumbnail {
+    grid-area: a;
+    align-self: start; 
+    padding-right: 1em;
+}
+
+/* ------------------------------------------------ Thumbnails ----------------------------------------- */
+
+/* -------------------------------------- Itch.io ------------------------------------------------------- */
+
+.itch-thumbnail {
+    /* Nothing to declare here, I guess */
+}
+
+.itch-thumbnail > a > div {
+    position: relative;
+}
+
+.itch-thumbnail > a > div > img {
+    border-radius: 2em;
+}
+
+.itch-thumbnail a > div > h4 {
+    position: absolute;
+    bottom: 10%; 
+    left: 50%; 
+    transform: translateX(-50%);
+
+    margin: 0;
+    padding:0.5em; 
+    border-radius: 1em;
+
+    background-color: var(--transCol); 
+}
+
+/* ------------------------------------ Youtube --------------------------------------------------- */
+/* https://internetzkidz.de/2021/03/youtube-thumbnail-url/ */
+
+.youtube-thumbnail {
+    padding: 0.5em;
+}
+
+.youtube-thumbnail > a {
+    text-align: center;
+}
+
+.youtube-thumbnail > a > div {
+    position: relative;
+    max-width: fit-content;
+}
+
+.youtube-thumbnail > a > div > img {
+    border-radius: 2em;
+    filter: blur(0.1em);
+}
+
+.youtube-thumbnail > a > div > h4 {
+    position: absolute;
+    bottom: 10%; 
+    left: 50%; 
+    transform: translateX(-50%);
+
+    margin: 0;
+    padding:0.5em; 
+    border-radius: 1em;
+
+    background-color: var(--transCol); 
+}
+
+.youtube-thumbnail > a > div > img ~ img {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
 }
