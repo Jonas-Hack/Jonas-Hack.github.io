@@ -688,10 +688,14 @@ summary:hover {
 .project-keyword-list ~ details[open] {
     grid-column: 1;
     grid-row: 2;
+
+    /* show details are opened */
+    color: red;
 }
 
 details[open] {
-    
+    /* show details are opened */
+    color: red;
 }
 
 .project-layout {
