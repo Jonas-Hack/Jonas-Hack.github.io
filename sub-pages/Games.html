@@ -48,7 +48,7 @@
             <div class="project-page">
 
                 <div class="container" id="Kawami">
-                    <h2> Kawami</h2>
+                    <h2>Kawami</h2>
 
                     <div class="tech-icon-bar">               
 
@@ -103,7 +103,7 @@
                             <p>top-down</p>
                             <p>stealth</p>
                             <p>shape-shifting</p>
-                            <p>Enemy AI</p>
+                            <p>enemy AI</p>
                         </div>
                         
 
@@ -137,8 +137,8 @@
 
                                     <p>
                                     I made use of a <b class="gradient-text">final state machine</b> - naively implemented with an <b>enum</b> and the <b>switch-method</b>.
-                                    An enemy-AI, can therefore be in different <i>states</i>:
                                     </p>
+                                    <h4>An enemy-AI, can therefore be in different <i>states</i>:</h4>
                                     <ul>
                                         <li>Guard - <i>stand at a point</i></li>
                                         <li>Partrol - <i>walk thorugh waypoints</i></li>
@@ -187,6 +187,133 @@
                     </div>
                 </div>
           
+                <div class="container" id="HeartAttack">
+                    <h2>Heart Attack</h2>
+
+                    <div class="tech-icon-bar">               
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/unity-logo.svg" alt="Made with Unity">
+                            <p>Made using Unity</p>    
+                        </div>
+                        
+                        <div class="tech-icon">
+                            <img src="../resources/branding/group-icon.svg" alt="Made a Team">
+                            <p>4 Team Members</p>    
+                        </div>
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/solo-icon.svg" alt="Made alone">
+                            <p>Solo Development</p>    
+                        </div> -->
+
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/github-logo.svg" alt="Github">
+                            <p>Available on Github</p>    
+                        </div> -->
+
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/prize-cup.svg" alt="Award">
+                            <p>1st Place SemesterGameJam Winter 2022</p>    
+                        </div>
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/duration.svg" alt="Duration">
+                            <p>Weekend Game Jam</p>    
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="project-layout">
+
+                        <span class="itch-thumbnail">
+                            <a href="https://believing-gamedev.itch.io/heart-attack" target="_blank">
+                                <div>
+                                    <img src="https://img.itch.zone/aW1nLzEwNzQ3MjIxLnBuZw==/315x250%23c/pXPe9t.png">
+                                    <h4>Play on Itch</h4>
+                                </div>
+                            </a>
+                        </span>
+                       
+                        <div class="project-keyword-list">
+                            <p>bullethell</p>
+                            <p>top-down</p>
+                            <p>shooter</p>
+                            <p>BOIDs</p>
+                        </div>
+                        
+
+                        <details>
+                            <summary>Read More</summary>
+                            <section>
+                                <p>
+                                    <i>HeartAttack</i> is a bullet-hell twin-stick-shooter with wave mechanics.<br>
+                                    The concept was much simpler than that of many other contestants and no single aspect of our game blew the others out of the water. We won first place anyway. This taught me valuing a cohesive overall experience. <br>
+                                    <br>My main contributions were:
+                                    <ul>
+                                      <li>BOID flocking behavior for white blood cells</li>
+                                      <li>Audio</li>
+                                      <li>Integrating the art into the game</li>
+                                      <li>Advising team members on specialized Unity features</li>
+                                    </ul>
+                                  </p>
+                            </section>
+                            
+                            <span class="youtube-thumbnail">
+                                <a href="https://www.youtube.com/watch?v=mq6jSqlAiDg" target="_blank">
+                                    <div>
+                                        <img src="https://img.youtube.com/vi/mq6jSqlAiDg/0.jpg">
+                                        <img src="../resources/branding/youtube-icon.png">
+                                        <h4>View on Youtube</h4>
+                                    </div>
+                                </a>
+                            </span>
+                            
+                            <div class="container secondary">
+                                <h3>Swarm AI</h3>
+                                <br><br>
+                                <section>
+                                    <p>
+                                    A large part of my contributions consited of work on the games enemy AI.<br>
+                                    Though most of its features remain unused in-game, a slightly improved version can be found on <a href="https://github.com/Jonas-Hack/BOIDS">Github</a>.
+                                    </p><br>
+
+                                    <p>
+                                    I made use of <b class="gradient-text">steering behaviours</b> - specifically an improvement on <b>BOIDs</b>.
+                                    BOIDs are a great way to create swarming / flocking masses of enemies.
+                                    </p> <br>
+
+                                    <h4>My version supoorts these features:</h4>
+                                    <ul>
+                                        <li>Directional <b>alignment</b> with neighbouring agents</li>
+                                        <li>Positional <b>cohesion</b> of swarm</li>
+                                        <li><b>Seperation</b> to avoid clumping</li>
+                                        <li><b>Steering</b> towards a goal</li>
+                                        <li><b>Avoidance</b> of obstacles</li>
+                                        <li><b>Spacial hashing</b> for improved performance</li>
+                                    </ul>
+
+                                    <p>
+                                        Each Update <i>(notably, not necessarily in every frame)</i>, for every agent, every feature calculates a new <b>desired direction</b> based on <b>all nearby agents</b>.
+                                        These directions are then avereraged accourding to <b>user-set weights</b>, defining their behaviour.
+                                    </p> <br><br>
+
+                                    <p>
+                                        To speed up <i>performance</i>, for the necesairy <i>distance checks</i>, a <b class="gradient-text">spatial hashmap</b> is used.
+                                        Agents are sorted according to their position into <b>grid-cells</b>, with a side-length of the vision distance of the agents. 
+                                        This makes filtering out obviously out-of range agents trivial for distance-checks, as <i>only adjacent cells</i> need to be sampled, greatly improving performance compared to a brute-force approach.
+                                        <br>
+                                        In the future, I might look into <i>compute shaders</i> and the <i>jobs-system</i> to improve performance even further.
+                                    </p>
+
+                                </section>
+                            </div>
+                        </details>
+                    </div>
+                </div>
                 <br>
             </div>
            

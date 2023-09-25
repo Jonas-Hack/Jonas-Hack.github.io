@@ -802,7 +802,7 @@ summary:hover {
 
 .youtube-thumbnail > a > div > img {
     border-radius: 2em;
-    filter: blur(0.1em);
+    filter: blur(0.05em);
 }
 
 .youtube-thumbnail > a > div > h4 {
