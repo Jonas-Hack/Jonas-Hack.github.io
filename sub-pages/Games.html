@@ -45,7 +45,7 @@
             <br/>
             
 
-            <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-content: flex-start;">
+            <div class="project-page">
 
                 <div class="container" id="Kawami">
                     <h2> Kawami</h2>
@@ -99,13 +99,11 @@
                         </span>
                        
                         <div class="project-keyword-list">
-                            <br>
-                            <p>cute</p><br>
-                            <p>top-down</p><br>
-                            <p>stealth</p><br>
-                            <p>shape-shifting</p><br>
-                            <p>Enemy AI</p><br>
-                            <br>
+                            <p>cute</p>
+                            <p>top-down</p>
+                            <p>stealth</p>
+                            <p>shape-shifting</p>
+                            <p>Enemy AI</p>
                         </div>
                         
 
@@ -126,7 +124,7 @@
                                     <div>
                                         <img src="https://img.youtube.com/vi/URnjtTHXqlk/0.jpg">
                                         <img src="../resources/branding/youtube-icon.png">
-                                        <h4></h4>
+                                        <h4>View on Youtube</h4>
                                     </div>
                                 </a>
                             </span>
@@ -135,58 +133,61 @@
                                 <h3>Enemy AI</h3>
                                 <br><br>
                                 <section>
-                                    <b>#TODO: ENGLISH + gif + polish</b> <br> <br>
-
-                                    Eigentlich ist es recht simpel: <br>
+                                    A large part of my contributions consited of work on the games enemy AI.<br>
 
                                     <p>
-                                    Wir verwenden eine Final state machine - naiv implementiert mit nem enum und switch-methode.
-                                    Eine KI, kann also in unterschiedlichen states sein:
+                                    I made use of a <b class="gradient-text">final state machine</b> - naively implemented with an <b>enum</b> and the <b>switch-method</b>.
+                                    An enemy-AI, can therefore be in different <i>states</i>:
                                     </p>
                                     <ul>
-                                        <li>Guard <i>(stehe an punkt)</i></li>
-                                        <li>Partrol <i>(laufe waypoints ab)</i></li>
-                                        <li>Wander <i>(um einen punkt random laufen)</i></li>
-                                        <li>Investigate <i>(gehe zu punkt und schau dich in der umbebung um)</i></li>
-                                        <li>Combat <i>(gehe du gegner und schiesse auf ihn)</i></li>
-                                        <li>Flee <i>(renne vorm gegner weg)</i></li>
+                                        <li>Guard - <i>stand at a point</i></li>
+                                        <li>Partrol - <i>walk thorugh waypoints</i></li>
+                                        <li>Wander - <i>walk to random points near waypoint</i></li>
+                                        <li>Investigate - <i>walk to point and then to random ones close by</i></li>
+                                        <li>Combat - <i>walk towards the player and shoot</i></li>
+                                        <li>Flee - <i>walk away from the player</i></li>
                                     </ul>
 
                                     <p>
-                                    Es gibt eine methode changeState(Behaviour nextBehaviour):
-                                    Hier werden für den nächsten State Variablen gesetzt. <i>(Sowas wie navmesh agent destination usw)</i>
+                                    There is a method <b>changeState(Behaviour nextBehaviour)</b>: <br>
+                                    Here variables for the next state get set. <i>(Things like navmesh agent destination etc.)</i>
                                     </p>
-                                    <br>
+                                    <br><br>
+                                    
                                     <p>
-                                    In einem Loop werden für jeden State exit conditions geprüft.
-                                    Das sind z.B. timeSinceStartOfBehaviour, oder LineOfSightToPlayer usw.
-                                    Dann wird auf der Basis davon der State gewechselt.
+                                    Periodically the <b>exit conditions</b> for each state are getting checked.
+                                    Some examples include <i>timeSinceStartOfBehaviour</i> and <i>LineOfSightToPlayer</i>.
+                                    Afterwards the state is changed accordingly.
                                     </p>
-                                    <br>
+                                    <br><br>
+
                                     <p>
-                                    Im Update wird je nach currentState eine unterschiedliche Methode ausgeführt, die das tatsächliche Verhalten bestimmt.
-                                    Also z.B. für patroll: Distanz zum nächsten Waypoint checken und ggf. Navmesh Destination ändern.
+                                    In <b>Update</b>, depending on the <b>currentState</b>, a different method is calles, which controls the actual behaviour of the enemy.
+                                    For example in case of the <i>patrol state</i>, the distance to the next waypoint is checked and the <i>navmesh destination</i> is updated, if applicable.
                                     </p>
-                                    <br>
+                                    <br><br>
+
                                     <p>
-                                    Die KI verwendet auch ein Sensing system. Wir haben also Events, die gecallt werden, wenn der Player die Vision-Cone betritt / verlässt oder einen Sound in Reichweite einer KI macht.
-                                    Je nachdem in welchem State wir sind, wird dann der State gewechselt, meistens zu Investigate oder Combat.
+                                    The AI makes uses of an <b>event based sensing system</b>. These events are invoked, when the player/exits enters the <i>vision cone</i> or makes a sound withing <i>audible range</i>.
+                                    Depending on the <i>current state</i>, the next one is selected and transitioned to - usually <i>investigate</i> or <i>combat</i>.
                                     </p>
-                                    <br>
+                                    <br><br>
+
                                     <p>
                                     Das sensing funktioniert über range, winkel, raycast und layer checks. 
                                     Zusätzlich haben wir noch ein Event, dass andere Skripts über state wechsel informiert. Damit wird dann z.B. eine Voice line gespielt, damit der player versteht was eigentlich passiert
+                                    
+                                    The <i>sensing</i> works by checking <i> range, angle, raycasts and layers</i>.
+                                    Additionally, with every state change, an event is invoked, which then informs any other <i>components</i>. This is used for mostly visual side effects, including emotes and audio barks.
                                     </p>
                                 </section>
                             </div>
-
                         </details>
-
-                       
+  
                     </div>
                 </div>
-
-            
+          
+                <br>
             </div>
            
             

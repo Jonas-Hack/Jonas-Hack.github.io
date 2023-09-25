@@ -627,7 +627,7 @@ summary:hover {
     padding: 15%;
 }
 
-.tech-icon > p{
+.tech-icon > p {
     visibility: hidden;
 
     position: absolute;
@@ -678,6 +678,15 @@ summary:hover {
 
 /* -------------------------------------------------- Project Descriptor -------------------------------------- */
 
+.project-page {
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: 2em;
+    
+    justify-content: center;
+    align-content: flex-start;
+}
 
 .project-keyword-list {
     opacity: 0.5; 
@@ -685,42 +694,25 @@ summary:hover {
 
     grid-area: b;
     align-self: start;
+}
 
-    /* grid-column: 3;
-    grid-row: 1; */
+.project-layout > .project-keyword-list > p {
+    display: block;
+    margin: 0;
+    padding: 0 0 0.5em 0;
 }
 
 .project-layout > details {
-    /* grid-column: 2;
-    grid-row: 1 / span 2; 
-    
-    bottom: 0; */
     grid-area: d;
-}
-
-@supports selector(:has(~ details[open])) {
-    .project-keyword-list:has(~ details[open]) {
-        /* grid-column: 1;
-        grid-row: 2; */
-    
-        grid-area: a;
-        align-self: center;
-    }    
-    
-    .project-layout > details[open] {
-        /* grid-column: 2;
-        grid-row: 1 / span 2; */
-
-        grid-area: b;
-    } 
 }
 
 .project-layout {
     display: grid;
-    grid-template-columns: repeat(8, auto);
+    grid-template-columns: auto;
     grid-template-areas:
     "a a a a b b b b"
     "a a a a b b b b"
+    "x x x x y y y y"
     "c c c c d d d d"
     "c c c c d d d d";
 }
@@ -729,6 +721,37 @@ summary:hover {
     grid-area: a;
     align-self: start; 
     padding-right: 1em;
+}
+
+@supports selector(:has(~ details[open])) {
+    .project-keyword-list:has(~ details[open]) {
+        grid-area: a;
+        align-self: center;
+    }    
+    
+    .project-layout > details[open] {
+        grid-area: b;
+    } 
+}
+
+
+@media (max-width: 800px) {
+    .project-layout > details {
+        grid-area: c;
+    }
+
+    .project-layout > .project-keyword-list {
+        grid-area: x;
+        align-self: end;
+    }
+
+    .project-layout > .project-keyword-list > p {
+        display: inline-block;
+        padding: 0 0.5em 0 0.5em;
+        margin: 0;
+        text-wrap: nowrap;
+        text-align: center;
+    }
 }
 
 /* ------------------------------------------------ Thumbnails ----------------------------------------- */
@@ -745,6 +768,7 @@ summary:hover {
 
 .itch-thumbnail > a > div > img {
     border-radius: 2em;
+
 }
 
 .itch-thumbnail a > div > h4 {
