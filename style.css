@@ -558,7 +558,7 @@ summary:hover {
     max-height: 25vh;
 
     aspect-ratio: auto;
-    object-fit: contain;
+    object-fit: cover;
     /*outline: ridge red 2px;*/
 
     object-fit: cover;
@@ -579,6 +579,7 @@ summary:hover {
     cursor: pointer;
     
     box-shadow: 0 0 1em black;
+    animation: small-hop-animation 0.5s ease forwards;
 }
 
 .dynamic-gallery img:active {    
@@ -602,5 +603,64 @@ summary:hover {
     border-radius: 0.25em; 
 
     transition: 0.3s;
+    animation: none;
 }
 /* ---------------------------------------------------- Projects -------------------------------------------- */
+
+
+/* --------------------------------------------------- Tech Incons ------------------------------------------- */
+/* https://www.w3schools.com/css/css_tooltip.asp */
+
+.tech-icon {
+    display: inline-block;
+    position: relative;
+}
+
+.tech-icon > img {
+    max-width: 1.5rem;
+    height: 100%;
+    width: 100%;
+
+    aspect-ratio: 1;
+    display: inline-block;
+
+    padding: 15%;
+}
+
+.tech-icon > p{
+    visibility: hidden;
+
+    position: absolute;
+    top: 102%;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    
+    min-width: max-content;
+    text-wrap: nowrap;
+
+    background: var(--transCol);
+    backdrop-filter: blur(0.1em);
+    border-radius: 0.2em;
+    padding: 0.2em;
+    line-height: 1;
+    margin: 0;
+}
+
+.tech-icon > p::after {
+    content: " ";
+
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: transparent transparent var(--transCol);
+    backdrop-filter: blur(0.1em);
+}
+
+.tech-icon:hover p {
+    visibility: visible;
+}
