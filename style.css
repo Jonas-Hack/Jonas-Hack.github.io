@@ -688,6 +688,12 @@ summary:hover {
     align-content: flex-start;
 }
 
+.project-page > .container > p {
+    opacity: 0.5;
+    padding-left: 1em;
+    vertical-align: middle;
+}
+
 .project-keyword-list {
     opacity: 0.5; 
     padding-left: 1em;
