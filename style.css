@@ -217,7 +217,7 @@ h3 {
 
 h4 {
     color: var(--textCol);
-    text-decoration: underline;
+    text-decoration: none;/*underline;*/
     text-decoration-color: var(--primCol);
     
     font-weight: 700;
