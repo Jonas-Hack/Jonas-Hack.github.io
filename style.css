@@ -387,6 +387,13 @@ ul li::before {
     margin-right: 0.3em;
 }
 
+ul.list-no-style li::before{
+    opacity: 0%;
+}
+ol.list-no-style li::before{
+    opacity: 0%;
+}
+
 /* Ordered Lists */
 ol {
     list-style: none;
