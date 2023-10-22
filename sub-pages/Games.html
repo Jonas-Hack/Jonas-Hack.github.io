@@ -135,7 +135,7 @@
                                 <h3>Enemy AI</h3>
                                 <br><br>
                                 <section>
-                                    A large part of my contributions consited of work on the games enemy AI.<br>
+                                    A large part of my contributions consisited of work on the games enemy AI.<br>
 
                                     <p>
                                     I made use of a <b class="gradient-text">finite state machine</b> - naively implemented with an <b>enum</b> and the <b>switch-method</b>.
@@ -143,7 +143,7 @@
                                     <h4>An enemy-AI, can therefore be in different <i>states</i>:</h4>
                                     <ul>
                                         <li>Guard - <i>stand at a point</i></li>
-                                        <li>Partrol - <i>walk thorugh waypoints</i></li>
+                                        <li>Partrol - <i>walk through waypoints</i></li>
                                         <li>Wander - <i>walk to random points near waypoint</i></li>
                                         <li>Investigate - <i>walk to point and then to random ones close by</i></li>
                                         <li>Combat - <i>walk towards the player and shoot</i></li>
@@ -164,7 +164,7 @@
                                     <br><br>
 
                                     <p>
-                                    In <b>Update</b>, depending on the <b>currentState</b>, a different method is calles, which controls the actual behaviour of the enemy.
+                                    In <b>Update</b>, depending on the <b>currentState</b>, a different method is called, which controls the actual behaviour of the enemy.
                                     For example in case of the <i>patrol state</i>, the distance to the next waypoint is checked and the <i>navmesh destination</i> is updated, if applicable.
                                     </p>
                                     <br><br>
@@ -176,9 +176,6 @@
                                     <br><br>
 
                                     <p>
-                                    Das sensing funktioniert über range, winkel, raycast und layer checks. 
-                                    Zusätzlich haben wir noch ein Event, dass andere Skripts über state wechsel informiert. Damit wird dann z.B. eine Voice line gespielt, damit der player versteht was eigentlich passiert
-                                    
                                     The <i>sensing</i> works by checking <i> range, angle, raycasts and layers</i>.
                                     Additionally, with every state change, an event is invoked, which then informs any other <i>components</i>. This is used for mostly visual side effects, including emotes and audio barks.
                                     </p>
@@ -284,7 +281,7 @@
                                 <br><br>
                                 <section>
                                     <p>
-                                    A large part of my contributions consited of work on the games enemy AI.<br>
+                                    A large part of my contributions consisited of work on the games enemy AI.<br>
                                     Though most of its features remain unused in-game, a slightly improved version can be found on <a href="https://github.com/Jonas-Hack/BOIDS" target="_blank">Github</a>.
                                     </p><br>
 
@@ -293,7 +290,7 @@
                                     BOIDs are a great way to create swarming / flocking masses of enemies.
                                     </p> <br>
 
-                                    <h4>My version supoorts these features:</h4>
+                                    <h4>My version supports these features:</h4>
                                     <ul>
                                         <li>Directional <b>alignment</b> with neighbouring agents</li>
                                         <li>Positional <b>cohesion</b> of swarm</li>
@@ -305,11 +302,11 @@
 
                                     <p>
                                         Each Update <i>(notably, not necessarily in every frame)</i>, for every agent, every feature calculates a new <b>desired direction</b> based on <b>all nearby agents</b>.
-                                        These directions are then avereraged accourding to <b>user-set weights</b>, defining their behaviour.
+                                        These directions are then avereraged according to <b>user-set weights</b>, defining their behaviour.
                                     </p> <br><br>
 
                                     <p>
-                                        To speed up <i>performance</i>, for the necesairy <i>distance checks</i>, a <b class="gradient-text">spatial hashmap</b> is used.
+                                        To speed up <i>performance</i>, for the necessary <i>distance checks</i>, a <b class="gradient-text">spatial hashmap</b> is used.
                                         Agents are sorted according to their position into <b>grid-cells</b>, with a side-length of the vision distance of the agents. 
                                         This makes filtering out obviously out-of range agents trivial for distance-checks, as <i>only adjacent cells</i> need to be sampled, greatly improving performance compared to a brute-force approach.
                                         <br>
@@ -403,7 +400,7 @@
                                 <br><br>
                                 <section>
                                     <p>
-                                    A large part of my contributions consited of work on the <b class="gradient-text">dynamic narrative systems</b>, which controlled what direction the story takes, by selecting the next available news articles.<br>
+                                    A large part of my contributions consisited of work on the <b class="gradient-text">dynamic narrative systems</b>, which controlled what direction the story takes, by selecting the next available news articles.<br>
                                     Due to organizational difficulties, this system had to be partially cut to fit a smaller scope than intended. Under the hood my original implementation works similarly to the <b >dialog system of Firewatch</b> and <b> valve's AI-driven dynamic dialog system</b>, outlined in these great <b>GDC talks:</b> <a href="https://youtu.be/wj-2vbiyHnI?si=y2ZmloBVf2FBdxWp" target="_blank">1</a> <a href="https://youtu.be/tAbBID3N64A?si=vWYe6t-SFzslA5lA" target="_blank">2</a>
                                     </p><br><br>
 
@@ -655,7 +652,7 @@
                                 <h3>Tools & Shaders</h3>
                                 <br><br>
                                 <section>
-                                    The most interesting part of my contributions consited of work on <b class="gradient-text">tools for the level designers</b> and <b class="gradient-text"> shaders for specific effects</b>.<br>
+                                    The most interesting part of my contributions consisited of work on <b class="gradient-text">tools for the level designers</b> and <b class="gradient-text"> shaders for specific effects</b>.<br>
                                     <br>
 
                                     <h4>Tools</h4><br>
@@ -663,7 +660,7 @@
                                     <h5>Level Time Editor</h5>
                                     <p>
                                         Keeping track of objects in multiple time eras within the same level quickly became confusing and <b>tedious</b> for our level designers.
-                                        To make their job easier, I created an <b>editor window</b>, which could selectively hide specific time lines, aswell as move objects between them.
+                                        To make their job easier, I created an <b>editor window</b>, which could selectively hide specific time lines, as well as move objects between them.
                                         This removed visual clutter of WIP levels and <b>sped up the workflow</b>.
                                     </p><br>
 
@@ -681,14 +678,14 @@
 
                                     <h5>Height Blended PBR</h5>
                                     <p>
-                                        In multiple places, it was necesairy to <b>smootly blend between materials within a single mesh</b>.
+                                        In multiple places, it was necessary to <b>smoothly blend between materials within a single mesh</b>.
                                         Unity has some support for this, but only for terrains and only utilising <i>alpha blending</i> and only blending <i>simple textures, not PBR materials</i>. This was not sufficent for our needs.
                                         
                                         <br>
                                         My improved approach relied on three steps:
                                         <ol>
                                             <li>Using a <b>Vertex Colors</b> as splat map inputs</li>
-                                            <li><b>Height blending</b>, by comparing the materials' height maps, not just the spalt alphas</li>
+                                            <li><b>Height blending</b>, by comparing the materials' height maps, not just the splat alphas</li>
                                             <li>Blending <b>PBR materials</b> by blending each texture indiviudally</li>
                                         </ol>
 
@@ -699,7 +696,7 @@
                                     <h5>Swamp Water</h5>
                                     <p>
                                         At the time of the games development, Unity did not ship with any premade water assets.
-                                        Also the look we were going for was specific to a swampy biome and could not be archieved with free solutions of the time.
+                                        Also the look we were going for was specific to a swampy biome and could not be achieved with free solutions of the time.
                                         So I created my own, with the following features:
                                         <ul>
                                             <li>Refraction</li>
