@@ -1,0 +1,6 @@
+User-Agent: Googlebot-Image
+Disallow: /resources/branding
+Disallow: /resources/page
+
+Sitemap: sitemap.xml
+
