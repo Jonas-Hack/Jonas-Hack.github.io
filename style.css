@@ -736,15 +736,18 @@ summary:hover {
     padding-right: 1em;
 }
 
+/* Only change project layout on inspect, if supported and on desktop */
 @supports selector(:has(~ details[open])) {
-    .project-keyword-list:has(~ details[open]) {
-        grid-area: a;
-        align-self: center;
-    }    
-    
-    .project-layout > details[open] {
-        grid-area: b;
-    } 
+    @media (min-aspect-ratio: 1/1){ 
+        .project-keyword-list:has(~ details[open]) {
+            grid-area: a;
+            align-self: center;
+        }    
+        
+        .project-layout > details[open] {
+            grid-area: b;
+        } 
+    }  
 }
 
 
