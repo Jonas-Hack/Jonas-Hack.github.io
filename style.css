@@ -123,15 +123,15 @@ body {
     margin-right: 6.25%;
     margin-left: 6.25%;   
 
-    padding-top: 8.5vh;
+    padding-top: 4em;
     padding-bottom: 1.5em;
     padding-left: 2.5%;
     padding-right: 2.5%;
 }
 
-@media (max-width: 800px){
+@media (max-aspect-ratio: 1/1){
     .center {
-        padding-top: 19vh;
+        padding-top: 9em;
     }
 }
 
@@ -469,7 +469,7 @@ summary:hover {
     justify-content: space-around; 
     align-content: stretch;    
 }
-@media (max-width: 800px) {
+@media (max-aspect-ratio: 1/1) {
     .reactive-flex {
         flex-direction: column; 
     }        
@@ -538,7 +538,7 @@ summary:hover {
 }
 
 
-@media (max-width: 800px) {
+@media (max-aspect-ratio: 1/1) {
     .even-gallery {
         grid-template-columns: repeat(2, auto);
     } 
@@ -574,9 +574,9 @@ summary:hover {
     filter: drop-shadow(0 0 0.3em black);
 }
 
-@media (max-width: 800px) {
+@media (max-aspect-ratio: 1/1) {
     .dynamic-gallery > img {
-        max-width: 30vw;
+        max-width: 60vw;
         max-height: 60vh;
     }    
 }
@@ -748,7 +748,31 @@ summary:hover {
 }
 
 
-@media (max-width: 800px) {
+@media (max-aspect-ratio: 1/1) {
+    /* Thumbnail size */
+    .project-layout {
+        width: 80vw;
+    }
+
+    .project-layout > .itch-thumbnail{
+        align-self: center;
+        justify-self: center;
+        
+        padding: 1em;
+
+        width: 60vw;
+        height: 60vw;
+        object-fit: cover;
+    }
+
+    .project-layout > .itch-thumbnail > a > div > img{
+        object-fit: cover;
+        width: 60vw;
+        height: 60vw;
+    }
+
+
+    /* Layout */
     .project-layout > details {
         grid-area: c;
     }
@@ -781,7 +805,6 @@ summary:hover {
 
 .itch-thumbnail > a > div > img {
     border-radius: 2em;
-
 }
 
 .itch-thumbnail a > div > h4 {
