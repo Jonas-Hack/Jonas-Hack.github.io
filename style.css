@@ -388,10 +388,12 @@ ul li::before {
 }
 
 ul.list-no-style li::before{
-    opacity: 0%;
+    content: none;
+    margin: none;
 }
 ol.list-no-style li::before{
-    opacity: 0%;
+    content: none;
+    margin: none;
 }
 
 /* Ordered Lists */
