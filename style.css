@@ -835,7 +835,7 @@ summary:hover {
 {
     transition: 0.3s;
 
-    transform: perspective(25rem) translateZ(-1em) rotateX(25deg) translateZ(1em);
+    transform: perspective(25rem) translateZ(-1em) rotateX(15deg) translateZ(1em);
     scale: 1.075;
     filter: drop-shadow(0em 1.5em 2em rgba(0,0,0,0.75));
 
