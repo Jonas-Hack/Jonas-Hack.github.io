@@ -19,6 +19,8 @@
 
     line-height: 1.5;
     font-family: 'Arial Black', 'Verdana', sans-serif;
+
+    scroll-behavior: smooth;
 }
 
 /* Reactive font size scaling */
@@ -138,6 +140,10 @@ body {
 section {
     font-family: 'Verdana', sans-serif;
     text-align: justify;
+
+    max-width: min(75em, 100%);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 p {
@@ -185,7 +191,8 @@ p {
 h1 {
     color: var(--primCol);
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.2;
+    letter-spacing: -0.0125rem;
 
     display: inline;
     text-align: center;
@@ -195,7 +202,8 @@ h1 {
 h2 {
     color: var(--primCol);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
+    letter-spacing: -0.0075rem;
 
     display: inline;
     text-align: center;
@@ -208,7 +216,8 @@ h3 {
     text-decoration-color: var(--accCol);
     
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
+    letter-spacing: -0.005rem;
 
     display: inline;
     text-align: center;
@@ -221,7 +230,7 @@ h4 {
     text-decoration-color: var(--primCol);
     
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
 
     display: inline;
     text-align: center;
@@ -251,6 +260,9 @@ a:hover {
     animation: link-hover-animation 0.2s ease forwards, small-hop-animation 0.5s ease forwards;
 
     cursor: pointer;    
+}
+a:not(hover) {
+    transition: 0.3s;
 }
 
 a:active {
@@ -286,6 +298,10 @@ a:active {
     animation: highlight-gradient-animation 0.5s ease forwards;
 }
 
+.home-button:not(hover) {
+    transition: 0.4s;
+}
+
 .home-button:active {
     text-shadow: 0 0 16.6rem var(--accCol);
     transition: 0.1s;
@@ -316,21 +332,17 @@ button {
     box-shadow: 0 0 1.7rem var(--transCol);
 }
 
-/*
-button:hover {
-    box-shadow:  0 0 12.5rem var(--secCol);
-    cursor: pointer;
-    filter: brightness(140%);
-    transition: 0.25s;
-    animation: small-hop-animation 0.5s ease forwards;
-}
-*/
+
 button:hover {
     background-color: var(--primCol);
     box-shadow:  0 0 2.1rem var(--primCol);
     animation: small-hop-animation 0.3s ease forwards;
     cursor: pointer;
     transition: 0.125s;
+}
+
+button:not(hover) {
+    transition: 0.15s;
 }
 
 button:active {
@@ -437,6 +449,9 @@ ol li::before {
     box-shadow: 0 0 1.66rem var(--transCol);
     transition: 0.5s;
 }
+.container:hover {
+    transition: 0.75s;
+}
 
 .secondary {
     background: var(--secCol);
@@ -513,6 +528,10 @@ summary:hover {
     cursor: pointer;
     
     box-shadow: 0 0 1em black;
+}
+
+.even-gallery img:not(hover) {
+    transition: 0.3s;
 }
 
 
@@ -694,6 +713,7 @@ summary:hover {
     gap: 2em;
     
     justify-content: center;
+    gap: 2.5em;
     align-content: flex-start;
 }
 
@@ -803,13 +823,28 @@ summary:hover {
 .itch-thumbnail {
     /* Nothing to declare here, I guess */
 }
-
 .itch-thumbnail > a > div {
     position: relative;
 }
 
 .itch-thumbnail > a > div > img {
     border-radius: 2em;
+}
+
+.itch-thumbnail > a:hover > div > img
+{
+    transition: 0.3s;
+
+    transform: perspective(25rem) translateZ(-1em) rotateX(25deg) translateZ(1em);
+    scale: 1.075;
+    filter: drop-shadow(0em 1.5em 2em rgba(0,0,0,0.75));
+
+    border-radius: 1.5em 1.5em 2em 2em;
+}
+
+.itch-thumbnail > a:not(hover) > div > img
+{
+    transition: 0.3s;
 }
 
 .itch-thumbnail a > div > h4 {
@@ -824,6 +859,19 @@ summary:hover {
 
     background-color: var(--transCol); 
 }
+
+.itch-thumbnail a:hover > div > h4 {
+    transition: 0.3s;
+
+    bottom: 25%;
+    filter: drop-shadow(0 1em 1em black);
+    scale: 1.1;
+}
+
+.itch-thumbnail a:not(hover) > div > h4 {
+    transition: 0.3s;
+}
+
 
 /* ------------------------------------ Youtube --------------------------------------------------- */
 /* https://internetzkidz.de/2021/03/youtube-thumbnail-url/ */
