@@ -527,11 +527,11 @@ summary:hover {
     transition: 0.2s;
     cursor: pointer;
     
-    box-shadow: 0 0 1em black;
+    box-shadow: 0 0 1em var(--transCol);
 }
 
 .even-gallery img:not(hover) {
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 
@@ -606,7 +606,7 @@ summary:hover {
     transition: 0.2s;
     cursor: pointer;
     
-    box-shadow: 0 0 1em black;
+    box-shadow: 0 0 1em var(--transCol);
     animation: small-hop-animation 0.5s ease forwards;
 }
 
@@ -739,7 +739,9 @@ summary:hover {
 
 .project-layout > details {
     grid-area: d;
+    margin: 0.75rem;
 }
+
 
 .project-layout {
     display: grid;
@@ -894,6 +896,51 @@ summary:hover {
     filter: blur(0.05em);
 }
 
+.youtube-thumbnail > a:hover > div > img
+{
+    transition: 0.3s;
+
+    transform: perspective(25rem) translateZ(-1em) rotateX(15deg) translateZ(1em);
+    scale: 1.075;
+    filter: drop-shadow(0em 1.5em 2em rgba(0,0,0,0.75));
+
+    border-radius: 1.5em 1.5em 2em 2em;
+}
+
+.youtube-thumbnail > a:not(hover) > div > img
+{
+    transition: 0.3s;
+}
+
+.youtube-thumbnail > a:hover > div > h4
+{
+    transition: 0.3s;
+
+    filter: drop-shadow(0 1em 1em black);
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.youtube-thumbnail > a:not(hover) > div > h4
+{
+    transition: 0.4s;
+}
+
+.youtube-thumbnail > a:hover > div > img ~ img {
+    transition: 0.3s;
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    margin: 0;
+    border-radius: 0;
+}
+
+.youtube-thumbnail > a:not(hover) > div > img ~ img {
+    transition: 0.4s;
+}
+
+
 .youtube-thumbnail > a > div > h4 {
     position: absolute;
     bottom: 10%; 
@@ -906,6 +953,7 @@ summary:hover {
 
     background-color: var(--transCol); 
 }
+
 
 .youtube-thumbnail > a > div > img ~ img {
     position: absolute;
