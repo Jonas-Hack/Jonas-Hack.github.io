@@ -752,6 +752,8 @@ summary:hover {
     "x x x x y y y y"
     "c c c c d d d d"
     "c c c c d d d d";
+
+    min-width: 29rem;
 }
 
 .project-layout > .itch-thumbnail {
