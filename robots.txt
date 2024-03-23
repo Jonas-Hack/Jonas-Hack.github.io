@@ -1,4 +1,4 @@
-User-Agent: Googlebot-Image
+User-agent: Googlebot-Image
 Disallow: /resources/branding
 Disallow: /resources/page
 
