@@ -829,6 +829,8 @@ summary:hover {
 }
 .itch-thumbnail > a > div {
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .itch-thumbnail > a > div > img {
