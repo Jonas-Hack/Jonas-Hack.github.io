@@ -54,6 +54,142 @@
 
                 <!-- TODO: polish solo games enough to put them here, maybe scope down to do so -->
 
+                <div class="container" id="Terminal-Rim">
+                    <h2>Terminal Rim</h2>
+                    <p>2025</p>
+                    <div class="tech-icon-bar">               
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/unity-logo.svg" alt="Made with Unity">
+                            <p>Made using Unity DOTS</p>    
+                        </div>
+                        
+                        <div class="tech-icon">
+                            <img src="../resources/branding/group-icon.svg" alt="Made a Team">
+                            <p>3 Team Members</p>    
+                        </div>
+                        
+                        <!--<div class="tech-icon">
+                            <img src="../resources/branding/solo-icon.svg" alt="Made alone">
+                            <p>Solo Development</p>    
+                        </div>-->
+
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/github-logo.svg" alt="Github">
+                            <p>Available on Github</p>    
+                        </div> -->
+
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/prize-cup.svg" alt="Award">
+                            <p>Showcased on TUM Demo Day</p>    
+                        </div>
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/duration.svg" alt="Duration">
+                            <p>1 Semester</p>    
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="project-layout">
+
+                        <span class="itch-thumbnail">
+                            <a href="https://zockchster.itch.io/terminal-rim" target="_blank">
+                                <div>
+                                    <img src="https://img.itch.zone/aW1nLzIyMTU2MjQxLnBuZw==/315x250%23c/ioYp9v.png">
+                                    <h4>Play on Itch</h4>
+                                </div>
+                            </a>
+                        </span>
+                       
+                        <div class="project-keyword-list">
+                            <p>DOTS</p>
+                            <p>ECS</p>
+                            <p>space shooter</p>
+                            <p>tower defense</p>
+                        </div>
+                        
+
+                        <details>
+                            <summary>Read More</summary>
+                            <section>
+                                <i>Terminal Rim</i> is a 3D tower defense space shooter game.<br>
+                                The player's goal is to defend a space station from an ever increasing number of enemies by taking control of a lone starfighter and placing sentry turrets.
+                                The gameplay mechanics are meant to be approachable. Instead, the technological and gameplay focus is on the large and ever-increasing number of enemies.<br>
+
+                                <br>My main contributions were:
+                                <ul>
+                                    <li>Player Ship Controller</li>
+                                    <li>Enemy AI</li>
+                                    <li>3D Art</li>
+                                    <li>Textures</li>
+                                    <li>Audio</li>
+                                </ul>
+                            </section>
+                            
+                            <div class="reactive-flex">
+                                    <span class="youtube-thumbnail">
+                                        <a href="https://youtu.be/RH0s8jIzAfQ?si=Ou3Vtgg1aA3CVREW" target="_blank">
+                                            <div>
+                                                <img src="https://i.ytimg.com/vi/RH0s8jIzAfQ/0.jpg">
+                                                <img src="../resources/branding/youtube-icon.png">
+                                                <h4>View on Youtube</h4>
+                                            </div>
+                                        </a>
+                                    </span>
+
+                                    <img src="https://img.itch.zone/aW1nLzIyMjYxODYzLmdpZg==/original/iWQYoj.gif"
+                                alt="gameplay-gif" class="sized-same-as-yt">
+                            </div>
+
+                            <div class="container secondary">
+                                <h3>Enemy AI</h3>
+                                <br><br>
+                                <section>
+                                    Once again a large part of my contributions consisted of work on the game's enemy AI, specifically steering behaviours.<br><br>
+                                    <p>
+                                    The difference to my previous implementations is the goal of supporting upwards of thousands of enemies at once. 
+                                    To that end I made use of the <b class="gradient-text">Data Oriented Technology Stack</b>: <b>ECS, JOBS, and BURST</b>.<br>
+                                    This allowed me to depict up to <b>thirty thousand enemy space craft</b>, interacting with each other, dodging obstacles, attacking the player as well as turrets. While this approach taught me a lot about <i>data-oriented programming</i>, 
+                                    I don't see myself choosing to work with <i>DOTS</i> again in the near future. More tried and tested methods are much nicer to work with, where scalability is not as much of a concern.
+                                    </p>
+                                    <br><br>
+                                    
+                                    <p>
+                                    An additional point to consider is the simple fact, that from a game design perspective, making such large masses of enemies fun to play against is quite difficult.
+                                    Besides just lowering the enemy count, I also mitigated this by:
+                                    </p>
+                                    <ol>
+                                        <li><b>Scriptable Waves</b>
+                                            <br>I created tooling to allow a pre-determined number and type of enemy swarm to spawn at specific times and under specific conditions. This facilitated the creation of a tutorial like introduction to the game with a manually fine-tuned diffuculty curve.
+                                        </li>
+                                        <li><b>Wave Director</b>
+                                            <br>I created a simple overarching director which takes into account the current world state, such as player health and turret count, decides on the type and diffuculty of enemies to spawn, tailored to the current situation. This approach is intended to extend the possible maximum playtime by dynamically scaling difficulty over time.
+                                        </li>
+                                    </ol>
+                                </section>
+
+                                <h3>Spaceship Controls</h3>
+                                <br><br>
+                                <section>
+                                    The controls of the player's space ship are as simplified as possible while still being fully physically simulated.<br>
+                                    <p>
+                                    The system is based on <b class="gradient-text">Fly-by-wire</b>. The player points a targeting reticle in the desired direction using standard mouse controls. 
+                                    The spaceship then automatically aligns itself with the chosen flight path. This process fully respects the physical properties of the rigidbody without cheating by directly setting velocities or rotations.
+                                    The virtual flight computer takes the difference of current and desired headings, then calculates the necessary forces and torque from there, in keeping with limits put on the ships maximum thrust. 
+                                    The process boils down to solving the equations of motion backwards. <br><br>
+                                    In addition to the player's input, some automatic assists are considered in the calculations. If no or very little input is applied, the space ship automatically slows itself down laterally and turns towards its current travel direction. This mimics behaviour of airplanes for a more intuitive interaction.
+                                    </p>
+                                    <br><br>
+                                </section>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
                 <div class="container" id="VR-Sword">
                     <h2>VR Swordsmanship</h2>
                     <p>2024</p>
