@@ -54,6 +54,126 @@
 
                 <!-- TODO: polish solo games enough to put them here, maybe scope down to do so -->
 
+                <div class="container" id="RedRaven">
+                    <h2>Arrival of the Red Raven</h2>
+                    <p>2025</p>
+                    <div class="tech-icon-bar">               
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/unity-logo.svg" alt="Made with Unity">
+                            <p>Made using Unity</p>    
+                        </div>
+                        
+                        <div class="tech-icon">
+                            <img src="../resources/branding/group-icon.svg" alt="Made a Team">
+                            <p>3 Team Members</p>    
+                        </div>
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/solo-icon.svg" alt="Made alone">
+                            <p>Solo Development</p>    
+                        </div> -->
+
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/github-logo.svg" alt="Github">
+                            <p>Available on Github</p>    
+                        </div> -->
+
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/prize-cup.svg" alt="Award">
+                            <p>Best Art SemesterGameJam 2025</p>    
+                        </div>
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/duration.svg" alt="Duration">
+                            <p>Weekend Game Jam</p>    
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="project-layout">
+
+                        <span class="itch-thumbnail">
+                            <a href="https://zockchster.itch.io/the-arrival-of-the-red-raven" target="_blank">
+                                <div>
+                                    <img src="https://img.itch.zone/aW1nLzI0MTA4MjYzLnBuZw==/315x250%23c/fZRCds.png">
+                                    <h4>Play on Itch</h4>
+                                </div>
+                            </a>
+                        </span>
+                       
+                        <div class="project-keyword-list">
+                            <p>visual novel</p>
+                            <p>branching story</p>
+                            <p>descision tree</p>
+                            <p>tool dev</p>
+                        </div>
+                        
+
+                        <details>
+                            <summary>Read More</summary>
+                            <section>
+                                <p>
+                                    <i>The Arrival of the Red Raven</i> is a visual novel with a branching narrative where decisions matter.<br>
+                                    Since I had the opportunity to work together with a talented artist and narrative designer, my main goal was to make sure they could entirely focus on their respective fields. 
+                                    This left me with the task of doing everything else, particularly all the programming on my own. 
+                                    Knowing this genre of games does not emphasize technical spectacle, I instead made it my mission to produce a perfectly unobtrusive and bug-free experience.<br>
+                                    <br>My main contributions were:
+                                    <ul>
+                                      <li>All programming</li>
+                                      <li>Audio</li>
+                                      <li>UI & Animations</li>
+                                    </ul>
+                                  </p>
+                            </section>
+                            
+                            <div class="container secondary">
+                                <h3>Click on Screenshots to view</h3><br><br>
+                                <span class="dynamic-gallery">
+                                    <img src="../resources/screenshots/RR-GamePlay.png">
+                                    <img src="../resources/screenshots/RR-Tooling.png">
+                                </span>
+                            </div>
+                            <br><br>
+
+                            <div class="container secondary">
+                                <h3>Decision Tree & Tooling</h3>
+                                <br><br>
+                                <section>
+                                    <h4>World State</h4><br>
+                                    <p>
+                                    I wanted the world state to be managed as simply as possible. So I designed the system bottom-up and separated functionality as much as possible.
+                                    To this end, I used the <b class="gradient-text">blackboard pattern</b> - I stored all information in a central class by associating an <i>enum</i> with <i>integer values</i>.
+                                    This way it is trivial to add new tracked state variables by editing a single file, whilst still having all the variables <i>statically accessible at compile time</i>, preventing key errors from the typical hashmap based approach.<br><br>
+
+                                    This also makes formalizing <b>preconditions</b> and <b>effects</b> trivially easy to create and debug. Both are just a <i>list of structs</i> that check or set values from the blackboard. These are then stored in <i>nodes in the decision tree</i>.
+                                    Each functionality is entirely compartmentalized, only depending on itself and the rather straightforwardly implemented blackboard. 
+                                    This way the <i>call stack is shallow with only a few dependencies</i>: When presenting a decision to the player, the current story node simply evaluates all the preconditions of its children and applies the effect of the chosen option.
+                                    </p><br><br><br>
+
+                                    <h4>Tooling</h4><br>
+                                    <p>
+                                    In order to actually create the story the narrative designer needed straight forward to use tools with fundamental quality of life features. Luckily they were familiar with Unity, so I could implement it as an editor extension.<br><br>
+                                    
+                                    The simplest debug feature is an <b>inspector for the blackboard</b>: The world state data needs to be reassociated with human-readable names, since it is stored in an <i>integer array accessed by enum ID</i>. This is achieved with a procedural inspector loading the variable string from the enum.<br><br>
+                                    
+                                    The more important feature is the <b>visual authoring of the story-flow</b> in the form of a decision tree, or rather graph. This process is designed to be as similar to the standard Unity workflow as possible. Each node is a game object, visually represented by a box in the scene view, connected to its successors by an arrow and color-coded according to reachability with current world state. 
+                                    Each node is selectable in the scene. Connections can be made by <b>drag-and-drop</b>. Conditions and Effects are simple <b>drop-downs</b> in lists.<br><br>
+
+                                    As additional <i>quality-of-life</i> features, <b>node children are auto-detected</b> from the hierarchy and <b>acyclic sections are auto-formatted</b> into perfect trees.
+                                    </p><br><br>
+
+                                    <br>
+                                    The approach of storing and authoring world state is possibly not the most scalable. In a more long-term project I would likely supplement it to be more flexible. But it did work flawlessly in the scope of the game jam and was fully implemented quickly enough to not become a blocker for other team members.
+                                </section>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
                 <div class="container" id="Terminal-Rim">
                     <h2>Terminal Rim</h2>
                     <p>2025</p>
@@ -252,17 +372,18 @@
                         <details>
                             <summary>Read More</summary>
                             <section>
-                                <i>My final thesis</i> investigates VR as training/educational tool for historical European swordsmanship.<br>
+                                <i>My final thesis</i> investigates <b>Virtual Reality</b> as a training/educational tool for historical European swordsmanship.
+                                The project combined <b>custom hardware</b>, real-time physics simulation and immersive interaction design into a fully functional VR training prototype.<br>
 
                                 <br>The main contents are:
                                 <ul>
-                                    <li>Rearch into historical swordsmanship</li>
-                                    <li>Mathmatically modeling the sword's dynamic properties</li>
-                                    <li>3D-Printed tangible controller representing a longsword</li>
+                                    <li>Resarch into Historical Swordsmanship</li>
+                                    <li>Mathematical Model of the Sword's Dynamic Properties</li>
+                                    <li>3D-Printed Tangible Controller Representing a Longsword</li>
                                     <li>Training Exercise Design</li>
                                     <li>3D & Texture Art</li>
-                                    <li>Actually Programming all the interactions</li>
-                                    <li>User-Study evaluating viability</li>
+                                    <li>Programming of all Interactions</li>
+                                    <li>User Study Evaluating Viability</li>
                                 </ul>
                             </section>
                             
@@ -342,7 +463,7 @@
                         <details>
                             <summary>Read More</summary>
                             <section>
-                                <i>Kawami</i> is a cute top-down stealth game with shapeshifing mechanics.<br>
+                                <i>Kawami</i> is a cute top-down stealth game with shapeshifting mechanics.<br>
                                 The game turned out shorter than we hoped and would have benefited from a bit more playtesting. Nevertheless I'm fairly happy with the outcome, as we were able to finish the game despite slight overscoping and organizational difficulties. I feel with more levels, this game could fulfill its potential, as the main mechanics are fully functional.<br>
                                 <br>My main contributions were:
                                 <ul>
@@ -368,15 +489,15 @@
                                 <h3>Enemy AI</h3>
                                 <br><br>
                                 <section>
-                                    A large part of my contributions consisited of work on the game's enemy AI.<br>
+                                    A large part of my contributions consisted of work on the game's enemy AI.<br>
 
                                     <p>
-                                    I made use of a <b class="gradient-text">finite state machine</b> - naively implemented with an <b>enum</b> and the <b>switch-method</b>.
+                                    I made use of a <b class="gradient-text">finite state machine</b> - with a straight forward <i>enum-based</i> implementation.
                                     </p>
-                                    <h4>An enemy-AI, can therefore be in different <i>states</i>:</h4>
+                                    <h4>An enemy-AI can therefore be in different <i>states</i>:</h4>
                                     <ul>
                                         <li>Guard - <i>stand at a point</i></li>
-                                        <li>Partrol - <i>walk through waypoints</i></li>
+                                        <li>Patrol - <i>walk through waypoints</i></li>
                                         <li>Wander - <i>walk to random points near waypoint</i></li>
                                         <li>Investigate - <i>walk to point and then to random ones close by</i></li>
                                         <li>Combat - <i>walk towards the player and shoot</i></li>
@@ -384,8 +505,8 @@
                                     </ul>
 
                                     <p>
-                                    There is a method <b>changeState(Behaviour nextBehaviour)</b>: <br>
-                                    It sets the variables necessary for the next state. <i>(Things such as navmesh agent destination etc.)</i>
+                                    There is a method <b>ChangeState(Behaviour nextBehaviour)</b>: <br>
+                                    It sets the variables necessary for the next state. <i>(Things such as nav mesh agent destination etc.)</i>
                                     </p>
                                     <br><br>
                                     
@@ -403,7 +524,7 @@
                                     <br><br>
 
                                     <p>
-                                    The AI makes uses of an <b>event based sensing system</b>. These events are invoked, when the player exits/enters the <i>vision cone</i> or makes a sound within <i>audible range</i>.
+                                    The AI makes use of an <b>event-based sensing system</b>. These events are invoked, when the player exits/enters the <i>vision cone</i> or makes a sound within <i>audible range</i>.
                                     Depending on the <i>current state</i>, the next one is selected and transitioned to - usually <i>investigate</i> or <i>combat</i>.
                                     </p>
                                     <br><br>
@@ -471,7 +592,7 @@
                         </span>
                        
                         <div class="project-keyword-list">
-                            <p>bullethell</p>
+                            <p>bullet hell</p>
                             <p>top-down</p>
                             <p>shooter</p>
                             <p>BOIDs</p>
@@ -514,7 +635,7 @@
                                 <br><br>
                                 <section>
                                     <p>
-                                    A large part of my contributions consisited of work on the games enemy AI.<br>
+                                    A large part of my contributions consisted of work on the game's enemy AI.<br>
                                     Though most of its features remain unused in-game, a slightly improved version can be found on <a href="https://github.com/Jonas-Hack/BOIDS" target="_blank">Github</a>.
                                     </p><br>
 
@@ -527,15 +648,15 @@
                                     <ul>
                                         <li>Directional <b>alignment</b> with neighbouring agents</li>
                                         <li>Positional <b>cohesion</b> of swarm</li>
-                                        <li><b>Seperation</b> to avoid clumping</li>
+                                        <li><b>Separation</b> to avoid clumping</li>
                                         <li><b>Steering</b> towards a goal</li>
                                         <li><b>Avoidance</b> of obstacles</li>
-                                        <li><b>Spacial hashing</b> for improved performance</li>
+                                        <li><b>Spatial hashing</b> for improved performance</li>
                                     </ul>
 
                                     <p>
                                         Each Update <i>(notably, not necessarily in every frame)</i>, for every agent, every feature calculates a new <b>desired direction</b> based on <b>all nearby agents</b>.
-                                        These directions are then avereraged according to <b>user-set weights</b>, defining their behaviour.
+                                        These directions are then averaged according to <b>user-set weights</b>, defining their behaviour.
                                     </p> <br><br>
 
                                     <p>
@@ -543,7 +664,7 @@
                                         Agents are sorted according to their position into <b>grid-cells</b>, with a side-length of the vision distance of the agents. 
                                         This makes filtering out obviously out-of range agents trivial for distance-checks, as <i>only adjacent cells</i> need to be sampled, greatly improving performance compared to a brute-force approach.
                                         <br>
-                                        In the future, I might look into <i>compute shaders</i> and the <i>jobs-system</i> to improve performance even further.
+                                        In a later project <i>(Terminal Rim)</i> I revisted the topic of BOIDs and improved performance massively using <i>DOTS</i>.
                                     </p>
 
                                 </section>
@@ -617,7 +738,7 @@
                                     <i>Headline</i> is a satire game about manipulative news reporting. It puts the player in the role of a malicious newspaper editor.<br>
                                     While the gameplay seems fairly simple, under the hood there are some fairly complex systems controlling the narrative. 
                                     This complexity, combined with difficulties in playtesting, lead to a game unable to live up to its potential. We simply did not have the time to properly test core gameplay systems and showcase the effects of them to the player.
-                                    After a chaotic start to development I reluctantly became team lead mid way through development. The game would likely have been better, if we had clear project management from the start. This way I learned the value of an organized development team.<br>
+                                    After a chaotic start to development I reluctantly became team lead midway through development. The game would likely have been better, if we had clear project management from the start. This way I learned the value of an organized development team.<br>
                                     <br>My main contributions were:
                                     <ul>
                                       <li>Narrative Controller</li>
@@ -634,8 +755,8 @@
                                 <br><br>
                                 <section>
                                     <p>
-                                    A large part of my contributions consisited of work on the <b class="gradient-text">dynamic narrative systems</b>, which controlled what direction the story takes, by selecting the next available news articles.<br>
-                                    Due to organizational difficulties, this system had to be partially cut to fit a smaller scope than intended. Under the hood my original implementation works similarly to the <b >dialog system of Firewatch</b> and <b> valve's AI-driven dynamic dialog system</b>, outlined in these great <b>GDC talks:</b> <a href="https://youtu.be/wj-2vbiyHnI?si=y2ZmloBVf2FBdxWp" target="_blank">1</a> <a href="https://youtu.be/tAbBID3N64A?si=vWYe6t-SFzslA5lA" target="_blank">2</a>
+                                    A large part of my contributions consisted of work on the <b class="gradient-text">dynamic narrative systems</b>, which controlled what direction the story takes, by selecting the next available news articles.<br>
+                                    Due to organizational difficulties, this system had to be partially cut to fit a reduced scope. Under the hood my original implementation works similarly to the <b>dialog system of Firewatch</b> and <b>valve's AI-driven dynamic dialog system</b>, outlined in these great <b>GDC talks:</b> <a href="https://youtu.be/wj-2vbiyHnI?si=y2ZmloBVf2FBdxWp" target="_blank">1</a> <a href="https://youtu.be/tAbBID3N64A?si=vWYe6t-SFzslA5lA" target="_blank">2</a>
                                     </p><br><br>
 
                                     <p>
@@ -654,9 +775,9 @@
                                     </p>
 
                                     <p>
-                                    With all this information the <b>StoryManager</b> decides which articles to show next. It is based on a <b>priority cue</b>, containing all relevant articles.
-                                    This cue is first <b>filtered</b> for only articles, whose <i>preconditions</i> are met and then sorted based on remaining <i>lifetime</i>. This way <i>currently relevant</i> articles are shown while letting older story-threads resurface as <i>narrative callbacks</i>.
-                                    Incase no articles qualify as relevant to the current world state, filler articles are chosen at random from a set of throwaway articles without any preconditions.
+                                    With all this information the <b>StoryManager</b> decides which articles to show next. It is based on a <b>priority queue</b>, containing all relevant articles.
+                                    This queue is first <b>filtered</b> for only articles, whose <i>preconditions</i> are met and then sorted based on remaining <i>lifetime</i>. This way <i>currently relevant</i> articles are shown while letting older story-threads resurface as <i>narrative callbacks</i>.
+                                    In case no articles qualify as relevant to the current world state, filler articles are chosen at random from a set of throwaway articles without any preconditions.
                                     <br>
                                     After every round the articles <i>effects</i> are applied to the current <i>world state</i>, simulating the news agency's influence on the political climate.
                                     This then affects the available news articles in the next turn, possibly unlocking <i>follow-up stories</i>.
@@ -885,7 +1006,7 @@
                                 <h3>Tools & Shaders</h3>
                                 <br><br>
                                 <section>
-                                    The most interesting part of my contributions consisited of work on <b class="gradient-text">tools for the level designers</b> and <b class="gradient-text"> shaders for specific effects</b>.<br>
+                                    The most interesting part of my contributions consisted of work on <b class="gradient-text">tools for the level designers</b> and <b class="gradient-text"> shaders for specific effects</b>.<br>
                                     <br>
 
                                     <h4>Tools</h4><br>
@@ -900,7 +1021,7 @@
 
                                     <h5>Vertex Painter</h5>
                                     <p>
-                                        A major goal of this game was to demonstrate the decay of architecture through time. The main way to archieve this was through textures.
+                                        A major goal of this game was to demonstrate the decay of architecture through time. The main way to achieve this was through textures.
                                         The ageing process of wood is however, specific to the surroundings of the houses. So there needed to be a way to <b>paint on objects within the context of the scene</b> and therefore the engine.
                                         For that purpose, I created a simple <b>vertex painting tool</b> with features similar to old school <i>paint</i>. The resulting <i>vertex colors</i> could then be fed into custom shaders.
                                     </p><br>
@@ -912,23 +1033,23 @@
                                     <h5>Height Blended PBR</h5>
                                     <p>
                                         In multiple places, it was necessary to <b>smoothly blend between materials within a single mesh</b>.
-                                        Unity has some support for this, but only for terrains and only utilising <i>alpha blending</i> and only blending <i>simple textures, not PBR materials</i>. This was not sufficent for our needs.
+                                        Unity has some support for this, but only for terrains and only utilising <i>alpha blending</i> and only blending <i>simple textures, not PBR materials</i>. This was not sufficient for our needs.
                                         
                                         <br>
                                         My improved approach relied on three steps:
                                         <ol>
                                             <li>Using a <b>Vertex Colors</b> as splat map inputs</li>
                                             <li><b>Height blending</b>, by comparing the materials' height maps, not just the splat alphas</li>
-                                            <li>Blending <b>PBR materials</b> by blending each texture indiviudally</li>
+                                            <li>Blending <b>PBR materials</b> by blending each texture individually</li>
                                         </ol>
 
-                                        This resulted in much more versitile and and pretty texture painting opporunities within the engine.
+                                        This resulted in much more versatile and and pretty texture painting opportunities within the engine.
                                     </p><br>
 
 
                                     <h5>Swamp Water</h5>
                                     <p>
-                                        At the time of the games development, Unity did not ship with any premade water assets.
+                                        At the time of the game's development, Unity did not ship with any premade water assets.
                                         Also the look we were going for was specific to a swampy biome and could not be achieved with free solutions of the time.
                                         So I created my own, with the following features:
                                         <ul>
@@ -1015,7 +1136,7 @@
                             <section>
                                 <p>
                                     <i>Sail Away</i> is a casual game about relaxation and exploration.<br>
-                                    The main purpose of this game was to experiment with reactive programming and Unity's new input system. The speed of the ship is dependent on a combination of the ship's sail's and wind direction through a rough approximation of the physics at work, allowing for a smooth sailing experience.<br>
+                                    The main purpose of this game was to experiment with <b>reactive programming</b> and <b>Unity's new input system</b>. The speed of the ship is dependent on a combination of the ship's sail's and wind direction through a rough approximation of the physics at work, allowing for a smooth sailing experience.<br>
                                     <br>My main contributions were:
                                     <ul>
                                       <li>Ship "Physics"</li>
