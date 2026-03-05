@@ -365,6 +365,119 @@
                     </div>
                 </div>
 
+                
+                <div class="container" id="Painterly">
+                    <h2>Stylized Rendering</h2>
+                    <p>2024</p>
+                    <div class="tech-icon-bar">               
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/unity-logo.svg" alt="Made with Unity">
+                            <p>Made using Unity</p>    
+                        </div>
+                        
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/group-icon.svg" alt="Made a Team">
+                            <p>2 Team Members</p>    
+                        </div> -->
+                        
+                        <div class="tech-icon">
+                            <img src="../resources/branding/solo-icon.svg" alt="Made alone">
+                            <p>Solo Development</p>    
+                        </div>
+
+                        <!--
+                        <div class="tech-icon">
+                            <img src="../resources/branding/github-logo.svg" alt="Github">
+                            <p>Available on Github</p>    
+                        </div>
+                        -->
+
+                        <!-- <div class="tech-icon">
+                            <img src="../resources/branding/prize-cup.svg" alt="Award">
+                            <p>1st Place SemesterGameJam Winter 2022</p>    
+                        </div> -->
+
+                        <div class="tech-icon">
+                            <img src="../resources/branding/duration.svg" alt="Duration">
+                            <p>Weekend Project</p>    
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="project-layout">
+
+                        <span class="itch-thumbnail">
+                            <a>
+                                <div>
+                                    <img width="315" height="250" style="object-fit: cover;" 
+                                    src="../resources/screenshots/PT-PostProcessScene.png">
+                                </div>
+                            </a>
+                        </span>
+                       
+                        <div class="project-keyword-list">
+                            <p>Post-Processing</p>
+                            <p>Compute Shader</p>
+                            <p>Tool Dev</p>
+                            <p>Texture Filtering</p>
+                        </div>
+                        
+
+                        <details>
+                            <summary>Read More</summary>
+                            <section>
+
+                                This project is an experiment in painterly art-styles using <b class="gradient-text">Post-Processing</b> & <b class="gradient-text">Pre-baked Texture Filtering</b>. I explored two approaches.
+                                <br><br>
+
+                                <h4>Post-Processing</h4><br>
+                                <p>
+                                I created multiple shaders and integrated them into Unity's existing <b>Volume-based Post-Processing Stack</b>. 
+                                This way, the effects can be used and tuned using the workflow artists are already familiar with. 
+                                When combined, the effects turn any game into a painting, though with a noticeable performance impact.
+                                </p><br><br>
+                                Implemented Effects:
+                                <ul>
+                                    <li>Cell Shading</li>
+                                    <li>Kuwahara Filter</li>
+                                    <li>Oil Paint Filter</li>
+                                    <li>Outline</li>
+                                </ul><br>
+
+                                <h4>Texture Filtering</h4><br>
+                                <p>
+                                In the area of artistic stylization, another interesting approach has recently become popular:
+                                Applying brush strokes to the normal map, in order to create areas of solid light in the final render.
+                                This off-loads the effort from the game engine entirely onto the arists. It is usually a laborious process, 
+                                where all textures of a material have to be modified identically, in order to create a convincing effect. <br><br>
+
+                                I automated this, by extending the classical <i>Kuwahara filter</i>,
+                                to accept multiple textures as input. When calculating the variance inside a quadrant, 
+                                I take all the textures into account and then choose the same quadrant for all textures. 
+                                This way, all the textures of the material have identical brush strokes, generated using a <i>compute shader</i> at the click of a button.
+                                Admittedly automated image filtering cannot match manual artistic intent, but it serves as a great starting point to be refined by an artist.
+                                The tool is not meant to stand on its own, but to be a part of a larger workflow, to be a time saver.
+                            </p>
+                            </section>
+                            <br>
+
+                            <div class="container secondary">
+                                <h3>Click on Screenshot to view</h3><br><br>
+                                <span class="dynamic-gallery">
+                                    <img src="../resources/screenshots/PT-FilterShowcase.png">
+                                    <img src="../resources/screenshots/PT-PostProcess.png">
+                                    <img src="../resources/screenshots/PT-PostProcessScene.png">
+                                    <img src="../resources/screenshots/PT-Tooling.png">
+                                </span>
+                            </div>
+                        </details>
+  
+                    </div>
+                </div>
+
+
                 <div class="container" id="Probe-Placer">
                     <h2>Light Probe Placer Editor Tool</h2>
                     <p>2023</p>
@@ -777,7 +890,7 @@
                 </div>
 
                 <div class="container" id="Sw-Raytracer">
-                    <h2>Raytracer</h2>
+                    <h2>Classical Raytracer</h2>
                     <p>2021</p>
                     <div class="tech-icon-bar">               
 
